@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="public/lib/three_min.js"></script>
+	<script type="text/javascript" src="public/lib/csg.js"></script>
+	<script type="text/javascript" src="public/lib/ThreeCSG.js"></script>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		#loading{
+			font-size: 25px;
+			text-align: center;
+			margin-top: 50vh;
+			color: #89A4F5;
+		}
+	</style>
+</head>
+<body>
+	<div id = "text" style="display: none"><%= text %></div>
+	<div id = "loading">Модель получена, выполняется ее рендеринг...</div>
+<script type="text/javascript">var objects = [];</script>
+<script type="text/javascript" src="public/script/Conus.js"></script>
+<script type="text/javascript" src="public/script/CreateCylinder.js"></script>
+<script type="text/javascript" src="public/script/CreateBox.js"></script>
+<script type="text/javascript" src="public/script/CreateSphere.js"></script>
+<script type="text/javascript" src="public/script/script.js"></script>
+	<canvas id = "canvas"></canvas>
+</body>
+</html>

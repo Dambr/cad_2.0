@@ -1,0 +1,514 @@
+{
+	"Name": "Sborka",
+	"PositionX" : 0,
+	"PositionY" : 0,
+	"PositionZ" : 0,
+	"Geometry"  : [
+		{
+			"Name" : "Vivod",
+			"Geometry"  : [
+				{
+					"Name"      : "Shaiba",
+					"PositionY" : 21,
+					"Geometry"  : [
+						{
+							"Name"   : "cil1",
+							"Type"   : "Cylinder",
+							"Radius" : 35,
+							"Height" : 28,
+							"Grade"  : 10
+						},
+						{
+							"Name"   : "otv1",
+							"Type"   : "Cylinder",
+							"Radius" : 5.5,
+							"Height" : 28,
+							"Grade"  : 10
+						}
+					],
+					"Merger" : [
+						{
+							"First"  : "cil1",
+							"Second" : "otv1",
+							"Type"   : "subtract"
+						}
+					]
+				},
+
+				{
+					"Name" : "Shtir",
+					"Geometry"  : [
+						{
+							"Name"   : "cil2",
+							"Type"   : "Conus",
+							"RadiusTop" : 5,
+							"RadiusBot" : "Formula: 10/2 - 4*Math.cos(Math.PI/4)",
+							"Height" : 2,
+							"Grade"  : 10,
+							"PositionY" : "Formula: -35 - 1"
+						},
+						{
+							"Name"   : "cil3",
+							"Type"   : "Cylinder",
+							"Radius" : "Formula: 10/2",
+							"Height" : 70,
+							"Grade"  : 10
+						},
+						{
+							"Name"   : "cil4",
+							"Type"   : "Cylinder",
+							"Radius" : "Formula: 14/2",
+							"Height" : 67,
+							"Grade"  : 10,
+							"PositionY" : "Formula: 35 + 67/2"
+						},
+						{
+							"Name" : "cil5",
+							"Type" : "Cylinder",
+							"Radius" : "Formula: 6/2",
+							"Height" : 3,
+							"Grade"  : 10,
+							"PositionY" : "Formula: 35 + 67 + 3/2"
+						}
+					],
+					"Merger" : [
+						{
+							"First" : "cil2",
+							"Second" : "cil3",
+							"Type" : "union"
+						},
+						{
+							"First" : "Shtir",
+							"Second" : "cil4",
+							"Type" : "union"
+						},
+						{
+							"First" : "Shtir",
+							"Second" : "cil5",
+							"Type" : "union"
+						}
+					]
+				},
+
+				{
+					"Name" : "Vtulka",
+					"PositionY" : -25,
+					"Geometry" : [
+						{
+							"Name" : "cil15",
+							"Type" : "Cylinder",
+							"Radius" : "Formula: 84/2",
+							"Height" : 10,
+							"Grade"  : 10,
+							"PositionY" : "Formula: -10/2 + 20"
+						},
+						{
+							"Name" : "cil16",
+							"Type" : "Cylinder",
+							"Radius" : "Formula: 90/2",
+							"Height" : 20,
+							"Grade" : 10
+						},
+						{
+							"Name" : "otv9",
+							"Type" : "Cylinder",
+							"Radius" : "Formula: 70/2",
+							"Height" : 30,
+							"Grade" : 10,
+							"PositionY" : "Formula: 10/2"
+						}
+					],
+					"Merger" : [
+						{
+							"First" : "cil15",
+							"Second" : "cil16",
+							"Type" : "union"
+						},
+						{
+							"First" : "Vtulka",
+							"Second" : "otv9",
+							"Type" : "subtract"
+						}
+					]
+				}
+			],
+			"Merger" : [
+				{
+					"First" : "Shtir",
+					"Second" : "Shaiba",
+					"Type" : "union"
+				},
+				{
+					"First" : "Vivod",
+					"Second" : "Vtulka",
+					"Type" : "union"
+				}
+			]
+		},
+
+		{
+			"Name" : "Izolyator",
+			"PositionY" : 70,
+			"Geometry" : [
+				{
+					"Name" : "cil6",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 70/2",
+					"Height" : 10,
+					"Grade" : 10,
+					"PositionY" : "Formula: -54/2 - 10/2"
+				},
+				{
+					"Name" : "cil7",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 45/2",
+					"Height" : 54,
+					"Grade" : 10
+				},
+				{
+					"Name" : "otv2",
+					"Type" : "Conus",
+					"RadiusTop" : "Formula: (14/2)+6*Math.cos(Math.PI/4)",
+					"RadiusBot" : "Formula: 14/2",
+					"Height" : 4,
+					"Grade" : 10,
+					"PositionY" :  "Formula: -54/2 + 2/2 - 10"
+				},
+				{
+					"Name" : "otv3",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 14/2",
+					"Height" : "Formula: 64 - 2",
+					"Grade" : 10,
+					"PositionY" : "Formula: -3/2 - 2 + 0.5"
+				}
+			],
+			"Merger" : [
+				{
+					"First" : "cil6",
+					"Second" : "cil7",
+					"Type" : "union"
+				},
+				{
+					"First" : "Izolyator",
+					"Second" : "otv2",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Izolyator",
+					"Second" : "otv3",
+					"Type" : "subtract"
+				}
+			]
+		},
+
+		{
+			"Name" : "Korpus",
+			"PositionY" : 17,
+			"Geometry" : [
+				{
+					"Name" : "cil8",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 150/2",
+					"Height" : 26,
+					"Grade" : 10,
+					"PositionY" : "Formula: -44/2 - 26/2"
+				},
+				{
+					"Name" : "cil9",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 160/2",
+					"Height" : 44,
+					"Grade" : 10 
+				},
+				{
+					"Name" : "cil10",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 200/2",
+					"Height" : 10,
+					"Grade" : 10,
+					"PositionY" : "Formula: 44/2 + 10/2"
+				},
+				{
+					"Name" : "cil11",
+					"Type" : "Conus",
+					"RadiusTop" : "Formula: 200/2",
+					"RadiusBot" : "Formula: 200/2 - 4*Math.cos(Math.PI/4)",
+					"Height" : 10,
+					"Grade" : 10,
+					"RotationZ" : "Formula: Math.PI",
+					"PositionY" : "Formula: 44/2 - 40 - 19"
+				},
+				{
+					"Name" : "cil12",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 50/2",
+					"Height" : 15,
+					"Grade" : 10,
+					"PositionY" : "Formula: 44/2 + 10/2 + 20/2 + 11"
+				},
+				{
+					"Name" : "cil13",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 60/2",
+					"Height" : 15,
+					"Grade" : 10,
+					"PositionY" : "Formula: 44/2 + 10/2 + 20/2 + 11 + 15"
+				},
+				{
+					"Name" : "cil14",
+					"Type" : "Conus",
+					"RadiusTop" : "Formula: 60/2",
+					"RadiusBot" : "Formula: 60/2 - 4*Math.cos(Math.PI/4)",
+					"Height" : 10,
+					"Grade" : 10,
+					"RotationZ" : "Formula: Math.PI",
+					"PositionY" : "Formula: 44/2 - 10/2 - 20/2 - 13 - 15 - 12 - 42"
+				},
+				{
+					"Name" : "otv4",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 136/2",
+					"Height" : 38,
+					"Grade" : 10,
+					"PositionY" : "Formula: -44/2 - 26 + 38/2"
+				},
+				{
+					"Name" : "otv5",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 105/2",
+					"Height" : 10,
+					"Grade" : 10,
+					"PositionY" : "Formula: -44/2 + 26 - 10"
+				},
+				{
+					"Name" : "otv6",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 90/2",
+					"Height" : 18,
+					"Grade" : 10,
+					"PositionY" : "Formula: -44/2 + 26 - 10 + 18/2"
+				},
+				{
+					"Name" : "otv7",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 70/2",
+					"Height" : 10,
+					"Grade" : 10,
+					"PositionY" : "Formula: -44/2 + 26 - 10 + 18/2 + 15 - 1"
+				},
+				{
+					"Name" : "otv8",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 45/2",
+					"Height" : 64,
+					"Grade" : 10,
+					"PositionY" : "Formula: -44/2 + 26 - 10 + 18/2 + 15 + 54/2 + 4"
+				}
+			],
+			"Merger" : [
+				{
+					"First" : "cil8",
+					"Second" : "cil9",
+					"Type" : "union"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "cil10",
+					"Type" : "union"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "cil11",
+					"Type" : "union"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "cil12",
+					"Type" : "union"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "cil13",
+					"Type" : "union"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "cil14",
+					"Type" : "union"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "otv4",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "otv5",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "otv6",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "otv7",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Korpus",
+					"Second" : "otv8",
+					"Type" : "subtract"
+				}
+			]
+		},
+
+		{
+			"Name" : "Canga",
+			"PositionY" : -45.4,
+			"Geometry" : [
+				{
+					"Name" : "cil17",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 30.5/2",
+					"Height" : 98,
+					"Grade" : 10
+				},
+				{
+					"Name" : "otv10",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 10/2",
+					"Height" : 28,
+					"Grade" : 10,
+					"PositionY" : "Formula: 98/2 - 28/2"
+				},
+				{
+					"Name" : "otv11",
+					"Type" : "Conus",
+					"RadiusTop" : "Formula: 10/2",
+					"RadiusBot" : "Formula: 17/2",
+					"Height" : 10,
+					"Grade" : 10,
+					"PositionY" : "Formula: 98/2 - 28/2 - 10 - 9"
+				},
+				{
+					"Name" : "otv12",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 17/2",
+					"Height" : 60,
+					"Grade" : 10,
+					"PositionY" : "Formula: 98/2 - 28/2 - 10 - 9 - 60/2 - 10 + 5"
+				},
+				{
+					"Name" : "box1",
+					"Type" : "Box",
+					"A" : 30.5,
+					"B" : 55,
+					"C" : 7.5,
+					"PositionY" : "Formula: -98/2 + 55/2"
+				},
+				{
+					"Name" : "box2",
+					"Type" : "Box",
+					"A" : 7.5,
+					"B" : 55,
+					"C" : 30.5,
+					"PositionY" : "Formula: -98/2 + 55/2"
+				},
+				{
+					"Name" : "box3",
+					"Type" : "Box",
+					"A" : 30.5,
+					"B" : 16,
+					"C" : 12,
+					"PositionZ" : 9.3,
+					"PositionY" : "Formula: 99/2 - 16/2 - 10"
+				}
+			],
+			"Merger" : [
+				{
+					"First" : "cil7",
+					"Second" : "otv10",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Canga",
+					"Second" : "otv11",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Canga",
+					"Second" : "otv12",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Canga",
+					"Second" : "box1",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Canga",
+					"Second" : "box2",
+					"Type" : "subtract"
+				},
+				{
+					"First" : "Canga",
+					"Second" : "box3",
+					"Type" : "subtract"
+				}
+			]
+		},
+
+		{
+			"Name" : "Shaiba2",
+			"PositionY" : 5,
+			"Geometry" : [
+				{
+					"Name" : "cil18",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 30.5/2",
+					"Height" : 3.6,
+					"Grade" : 10
+				},
+				{
+					"Name" : "otv13",
+					"Type" : "Cylinder",
+					"Radius" : "Formula: 10/2",
+					"Height" : 3.6,
+					"Grade" : 10
+				}
+			],
+			"Merger" : [
+				{
+					"First" : "cil18",
+					"Second" : "otv13",
+					"Type" : "subtract"
+				}
+			]
+		}
+	],
+	"Merger" : [
+		{
+			"First" : "Izolyator",
+			"Second" : "Korpus",
+			"Type" : "union"
+		},
+		{
+			"First" : "Sborka",
+			"Second" : "Vivod",
+			"Type" : "union"
+		},
+		{
+			"First" : "Sborka",
+			"Second" : "Canga",
+			"Type" : "union"
+		},
+		{
+			"First" : "Sborka",
+			"Second" : "Shaiba2",
+			"Type" : "union"
+		}
+	]
+}

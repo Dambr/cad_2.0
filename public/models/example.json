@@ -1,0 +1,29 @@
+{
+	"Name" : "example",
+	"PositionX" : 0,
+	"PositionY" : 0,
+	"PositionZ" : 0,
+	"Geometry"  : [
+		{
+			"Name" : "cil1",
+			"Type" : "Cylinder",
+			"Radius" : 100,
+			"Height" : 200,
+			"RadialSegments" : 40
+		},
+		{
+			"Name" : "cil2",
+			"Type" : "Cylinder",
+			"Radius" : 50,
+			"Height" : 200,
+			"RadialSegments" : 40
+		}
+	],
+	"Merger" : [
+		{
+			"First" : "cil1",
+			"Second" : "cil2",
+			"Type" : "subtract"
+		}
+	]
+}
