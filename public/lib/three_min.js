@@ -1,5 +1,14 @@
 // threejs.org/license
-(function(l,ja){"object"===typeof exports&&"undefined"!==typeof module?ja(exports):"function"===typeof define&&define.amd?define(["exports"],ja):(l=l||self,ja(l.THREE={}))})(this,function(l){function ja(){}function A(a,b){this.x=a||0;this.y=b||0}function Q(){this.elements=[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1];0<arguments.length&&console.error("THREE.Matrix4: the constructor no longer reads arguments. use .set() instead.")}function ka(a,b,c,d){this._x=a||0;this._y=b||0;this._z=c||0;this._w=void 0!==d?
+(function(l,ja){
+
+	console.log = function(log) {
+	};
+	console.debug = console.log;
+	console.warn = console.log;
+	console.error = console.log;
+
+
+	"object"===typeof exports&&"undefined"!==typeof module?ja(exports):"function"===typeof define&&define.amd?define(["exports"],ja):(l=l||self,ja(l.THREE={}))})(this,function(l){function ja(){}function A(a,b){this.x=a||0;this.y=b||0}function Q(){this.elements=[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1];0<arguments.length&&console.error("THREE.Matrix4: the constructor no longer reads arguments. use .set() instead.")}function ka(a,b,c,d){this._x=a||0;this._y=b||0;this._z=c||0;this._w=void 0!==d?
 d:1}function n(a,b,c){this.x=a||0;this.y=b||0;this.z=c||0}function ra(){this.elements=[1,0,0,0,1,0,0,0,1];0<arguments.length&&console.error("THREE.Matrix3: the constructor no longer reads arguments. use .set() instead.")}function S(a,b,c,d,e,f,g,h,k,m){Object.defineProperty(this,"id",{value:Of++});this.uuid=G.generateUUID();this.name="";this.image=void 0!==a?a:S.DEFAULT_IMAGE;this.mipmaps=[];this.mapping=void 0!==b?b:S.DEFAULT_MAPPING;this.wrapS=void 0!==c?c:1001;this.wrapT=void 0!==d?d:1001;this.magFilter=
 void 0!==e?e:1006;this.minFilter=void 0!==f?f:1008;this.anisotropy=void 0!==k?k:1;this.format=void 0!==g?g:1023;this.type=void 0!==h?h:1009;this.offset=new A(0,0);this.repeat=new A(1,1);this.center=new A(0,0);this.rotation=0;this.matrixAutoUpdate=!0;this.matrix=new ra;this.generateMipmaps=!0;this.premultiplyAlpha=!1;this.flipY=!0;this.unpackAlignment=4;this.encoding=void 0!==m?m:3E3;this.version=0;this.onUpdate=null}function V(a,b,c,d){this.x=a||0;this.y=b||0;this.z=c||0;this.w=void 0!==d?d:1}function Qa(a,
 b,c){this.width=a;this.height=b;this.scissor=new V(0,0,a,b);this.scissorTest=!1;this.viewport=new V(0,0,a,b);c=c||{};this.texture=new S(void 0,void 0,c.wrapS,c.wrapT,c.magFilter,c.minFilter,c.format,c.type,c.anisotropy,c.encoding);this.texture.generateMipmaps=void 0!==c.generateMipmaps?c.generateMipmaps:!1;this.texture.minFilter=void 0!==c.minFilter?c.minFilter:1006;this.depthBuffer=void 0!==c.depthBuffer?c.depthBuffer:!0;this.stencilBuffer=void 0!==c.stencilBuffer?c.stencilBuffer:!0;this.depthTexture=

@@ -1,0 +1,99 @@
+{
+	"Name"      : "Model",
+	"Geometry"  : [
+		{
+			"Name"     : "Canga",
+			"Geometry" : [
+				{
+					"Name"   : "cil17",
+					"Type"   : "Cylinder",
+					"Radius" : "Formula: 3.05 / 2 * 40",
+					"Height" : "Formula: 9.8 * 40",
+					"Grade"  : 10
+				},
+				{
+					"Name"   : "otv10",
+					"Type"   : "Cylinder",
+					"Radius" : "Formula: 1 / 2 * 40",
+					"Height" : "Formula: 2.8 * 40",
+					"Grade"  : 10,
+					"PositionY" : "Formula: (9.8 - 2.8) / 2 * 40"
+				},
+				{
+					"Name"      : "otv11",
+					"Type"      : "Conus",
+					"RadiusTop" : "Formula: 1 / 2 * 40",
+					"RadiusBot" : "Formula: 1.7 / 2 * 40",
+					"Height"    : "Formula: 1 * 40",
+					"Grade"     : 10,
+					"PositionY" : "Formula: ((6 * 2 - 9.8) + 1) / 2 * 40"
+				},
+				{
+					"Name"      : "otv12",
+					"Type"      : "Cylinder",
+					"Radius"    : "Formula: 1.7 / 2 * 40",
+					"Height"    : "Formula: 6 * 40",
+					"Grade"     : 10,
+					"PositionY" : "Formula: (6 - 9.8) / 2 * 40"
+				},
+				{
+					"Name"      : "box1",
+					"Type"      : "Box",
+					"A"         : "Formula: 3.05 * 40",
+					"B"         : "Formula: 5.5 * 40",
+					"C"         : "Formula: 0.75 * 40",
+					"PositionY" : "Formula: (5.5 - 9.8) / 2 * 40"
+				},
+				{
+					"Name"      : "box2",
+					"Type"      : "Box",
+					"A"         : "Formula: 0.75 * 40",
+					"B"         : "Formula: 5.5 * 40",
+					"C"         : "Formula: 3.05 * 40",
+					"PositionY" : "Formula: (5.5 - 9.8) / 2 * 40"
+				},
+				{
+					"Name"      : "box3",
+					"Type"      : "Box",
+					"A"         : "Formula: 3.05 * 40",
+					"B"         : "Formula: 1.6 * 40",
+					"C"         : "Formula: 1.2 * 40",
+					"PositionZ" : "Formula: (-3.05 + 1.2) / 2 * 40",
+					"PositionY" : "Formula: (9.8 - 2.6) / 2 * 40"
+				}
+			],
+			"Merger" : [
+				{
+					"First"  : "cil17",
+					"Second" : "otv10",
+					"Type"   : "subtract"
+				},
+				{
+					"First"  : "Canga",
+					"Second" : "otv11",
+					"Type"   : "subtract"
+				},
+				{
+					"First"  : "Canga",
+					"Second" : "otv12",
+					"Type"   : "subtract"
+				},
+				{
+					"First" : "Canga",
+					"Second" : "box1",
+					"Type" : "subtract"
+				},
+				{
+					"First"  : "Canga",
+					"Second" : "box2",
+					"Type"   : "subtract"
+				},
+				{
+					"First"  : "Canga",
+					"Second" : "box3",
+					"Type"   : "subtract"
+				}
+			]
+		}
+	]
+}

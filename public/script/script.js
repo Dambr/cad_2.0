@@ -1,14 +1,32 @@
 window.onload = function(){
-	var text = JSON.parse(document.getElementById("text").textContent);
+	var text;
+	try{
+		text = JSON.parse(document.getElementById("text").textContent);
+	}
+	catch(e){
+		document.getElementById("loading").textContent = "Модель не проходит валидацию JSON";
+		return;
+	}
 	
 	//document.getElementById("loading").style.display = "none";
 	document.getElementById("loading").remove();
-	var width = window.innerWidth;
-	var height = window.innerHeight;
+	var width = window.innerWidth * 0.75;
+	var height = window.innerHeight * 0.75;
 	var canvas = document.getElementById("canvas");
 
 	canvas.setAttribute("width", width);
 	canvas.setAttribute("height", height);
+	canvas.style.marginTop = window.innerHeight * 0.25 / 2 + "px";
+	canvas.style.marginLeft = window.innerWidth * 0.25 / 2 + "px";
+
+	window.onresize = function(){
+		width = window.innerWidth * 0.75;
+		height = window.innerHeight * 0.75;
+		canvas.setAttribute("width", width);
+		canvas.setAttribute("height", height);
+		canvas.style.marginTop = window.innerHeight * 0.25 / 2 + "px";
+		canvas.style.marginLeft = window.innerWidth * 0.25 / 2 + "px";
+	};
 
 	var renderer = new THREE.WebGLRenderer({canvas: canvas});
 	renderer.setClearColor(0x000000);
@@ -24,6 +42,7 @@ window.onload = function(){
 
 
 	var objects = [];
+
 
 	function rekurs(txt){
 		for (i in txt.Geometry){
@@ -159,7 +178,7 @@ window.onload = function(){
 								depthSegments = eval(depthSegments.split("Formula:")[1])
 							}
 							
-							objects[objects.length - 1].Geometry = new CreateCylinder({
+							objects[objects.length - 1].Geometry = new CreateBox({
 								width         : width,
 								height   	  : height,
 								depth         : depth,
@@ -210,6 +229,7 @@ window.onload = function(){
 			merg.push([txt.Geometry[i].Name, txt.Geometry[i].Merger]);
 			objects.push({});
 			objects[objects.length - 1].Name = txt.Geometry[i].Name;
+//
 			//objects[objects.length - 1].Geometry;
 			/*
 			var pos_rot = ["PositionX", "PositionY", "PositionZ", "RotationX", "RotationY", "RotationZ"];
@@ -242,6 +262,7 @@ window.onload = function(){
 				objects[objects.length - 1].Geometry.rotation.z = objects[objects.length - 1].RotationZ;
 			}
 			*/
+//
 			for (j in txt.Geometry[i].Geometry){
 				if (!("Type" in txt.Geometry[i].Geometry[j])){
 					merg.push("+");
@@ -277,7 +298,7 @@ window.onload = function(){
 		merg[merg.indexOf("+", merg.indexOf("+") + 1)] = merg[merg.indexOf("+") - 1];
 		merg.splice(merg.indexOf("+") - 1, 2);
 	}
-	console.log(merg);
+	//console.log(merg);
 
 	for (i in merg){
 		for (j in objects){
@@ -358,7 +379,6 @@ window.onload = function(){
 	if (text.Merger){
 		objects.push({});
 		objects[objects.length - 1].Name = text.Name;
-		console.log(objects[objects.length - 1].Name);
 		for (i in text.Merger){
 			for (j in objects){
 				if (text.Merger[i].First == objects[j].Name){
@@ -370,7 +390,6 @@ window.onload = function(){
 								}
 								objects[h].Geometry = THREE.CSG.toCSG(objects[h].Geometry);
 								objects[objects.length - 1].Geometry = objects[j].Geometry.subtract(objects[h].Geometry);
-								console.log(objects[objects.length - 1].Name, objects[j].Name, "subtract", objects[h].Name);
 							}
 							if (text.Merger[i].Type == "union"){
 								if (objects[j].Name != objects[objects.length - 1].Name){
@@ -378,61 +397,63 @@ window.onload = function(){
 								}
 								objects[h].Geometry = THREE.CSG.toCSG(objects[h].Geometry);
 								objects[objects.length - 1].Geometry = objects[j].Geometry.union(objects[h].Geometry);
-								console.log(objects[objects.length - 1].Name, objects[j].Name, "union", objects[h].Name);
 							}
 						}
 					}
 				}
 			}
 		}
-		if (text.PositionX){
-			objects[objects.length - 1].Geometry.position.x = text.PositionX;
-		}
-		if (text.PositionY){
-			objects[objects.length - 1].Geometry.position.y = text.PositionY;
-		}
-		if (text.PositionZ){
-			objects[objects.length - 1].Geometry.position.z = text.PositionZ;
-		}
-		if (text.RotationX){
-			objects[objects.length - 1].Geometry.rotation.x = text.RotationX;
-		}
-		if (text.RotationY){
-			objects[objects.length - 1].Geometry.rotation.y = text.RotationY;
-		}
-		if (text.RotationZ){
-			objects[objects.length - 1].Geometry.rotation.z = text.RotationZ;
-		}
+		
 
 		//model.Geometry = THREE.CSG.toCSG(model.Geometry);
 		objects[objects.length - 1].Geometry = new THREE.Mesh(THREE.CSG.fromCSG( objects[objects.length - 1].Geometry ),new THREE.MeshNormalMaterial());
+		if (text.PositionX != undefined){
+			objects[objects.length - 1].Geometry.position.x = text.PositionX;
+		}
+		if (text.PositionY != undefined){
+			objects[objects.length - 1].Geometry.position.y = text.PositionY;
+		}
+		if (text.PositionZ != undefined){
+			objects[objects.length - 1].Geometry.position.z = text.PositionZ;
+		}
+		if (text.RotationX != undefined){
+			objects[objects.length - 1].Geometry.rotation.x = text.RotationX;
+		}
+		if (text.RotationY != undefined){
+			objects[objects.length - 1].Geometry.rotation.y = text.RotationY;
+		}
+		if (text.RotationZ != undefined){
+			objects[objects.length - 1].Geometry.rotation.z = text.RotationZ;
+		}
 		scene.add(objects[objects.length - 1].Geometry);
 	}
 	else{
-
-		if (text.PositionX){
+		if (text.PositionX != undefined){
 			objects[objects.length - 1].Geometry.position.x = text.PositionX;
+			console.info(objects[objects.length - 1].Geometry.position.x);
 		}
-		if (text.PositionY){
+		if (text.PositionY != undefined){
 			objects[objects.length - 1].Geometry.position.y = text.PositionY;
+			console.info(objects[objects.length - 1].Geometry.position.y);
 		}
-		if (text.PositionZ){
+		if (text.PositionZ != undefined){
 			objects[objects.length - 1].Geometry.position.z = text.PositionZ;
+			console.info(objects[objects.length - 1].Geometry.position.z);
 		}
-		if (text.RotationX){
+		if (text.RotationX != undefined){
 			objects[objects.length - 1].Geometry.rotation.x = text.RotationX;
 		}
-		if (text.RotationY){
+		if (text.RotationY != undefined){
 			objects[objects.length - 1].Geometry.rotation.y = text.RotationY;
 		}
-		if (text.RotationZ){
+		if (text.RotationZ != undefined){
 			objects[objects.length - 1].Geometry.rotation.z = text.RotationZ;
 		}
-		console.log(objects);
 		objects[objects.length - 1].Geometry = THREE.CSG.toCSG(objects[objects.length - 1].Geometry);
 		objects[objects.length - 1].Geometry = new THREE.Mesh(THREE.CSG.fromCSG( objects[objects.length - 1].Geometry ),new THREE.MeshNormalMaterial());
 		scene.add(objects[objects.length - 1].Geometry);
 	}
+//
 	/*
 	if (text.PositionX){
 		objects[objects.length - 1].Geometry.position.x = text.PositionX;
@@ -457,15 +478,74 @@ window.onload = function(){
 	objects[objects.length - 1].Geometry = new THREE.Mesh(THREE.CSG.fromCSG( objects[objects.length - 1].Geometry ),new THREE.MeshNormalMaterial());
 	scene.add(objects[objects.length - 1].Geometry);
 	*/
+//	
+
+
+
+	//		Управление мышью
+
+	// Зум
+	camera.lookAt(objects[objects.length - 1].Geometry.position);
+	document.getElementById('canvas').addEventListener('wheel', function(e){
+		var delta = e.deltaY || e.detail || e.wheelDelta;
+		camera.position.z += delta * 5;
+	});
+
+
+	var x1 = undefined;
+	var y1 = undefined;
+	var degz0 = 0;
+	var degx0 = 0;
+	var x0    = 0;
+	var y0    = 0; 
+
+	document.getElementById('canvas').addEventListener('mousedown', function(e){
+		x1 = e.clientX;
+		y1 = e.clientY;
+		degz0 = scene.rotation.z;
+		degx0 = scene.rotation.x;
+	});
+
+	document.getElementById('canvas').addEventListener('mousemove', function(e){
+		if (x1 - e.clientX || y1 - e.clientY){
+			// Горизонталь
+			Math.floor(scene.rotation.x / Math.PI) % 2 == 0 ? scene.rotation.z = degz0 + (x1 - e.clientX) / 100 : scene.rotation.z = degz0 - (x1 - e.clientX) / 100;
+			// Вертикаль
+			scene.rotation.x = degx0 - (y1 - e.clientY) / 100;
+		}
+	});
+	
+	document.getElementById('canvas').addEventListener('mouseup', function(e){
+		x1 = undefined;
+		y1 = undefined;
+	});
+	document.getElementById('canvas').addEventListener('mouseover', function(e){
+		x1 = undefined;
+		y1 = undefined;
+	});
+
+	
+	
+	
+
 	function loop(){
 		
 		requestAnimationFrame(function(){loop();});
 		renderer.render(scene, camera);
+		//							Зум кнопками
+		(function zoom(){
+			document.onkeydown = function(e){
+				if (e.keyCode === 187) camera.position.z -= 15;
+				else if (e.keyCode === 189) camera.position.z += 15;
+			}
+		})();
+//
+		/*
 		//							вращение сцены
 		(function rotateAll(){
-			let rotateX = 0;
-			let rotateY = 0;
-			let rotateZ = 0;
+			var rotateX = 0;
+			var rotateY = 0;
+			var rotateZ = 0;
 			document.onkeydown = function(e){
 				if (e.keyCode === 37) rotateY -= Math.PI/180;
 				else if (e.keyCode === 38) rotateX -= Math.PI/180;
@@ -478,6 +558,8 @@ window.onload = function(){
 				scene.rotation.z += rotateZ;
 			}
 		})();
+		*/
+//
 	}
 	loop();
 }

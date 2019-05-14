@@ -1,4 +1,4 @@
-function CreateCilinderWithFask(){
+function CreateCilinderWithFask(values){
 	//let geometry = new THREE.CylinderGeometry(...arguments);
 	let geometry = new THREE.CylinderGeometry(
 		values.RadiusTop, 

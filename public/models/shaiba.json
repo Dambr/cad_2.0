@@ -1,25 +1,21 @@
 {
-	"Name": "Sborka",
-	"PositionX" : 0,
-	"PositionY" : 0,
-	"PositionZ" : 0,
+	"Name"      : "Model",
 	"Geometry"  : [
 		{
 			"Name"      : "Shaiba",
-			"PositionY" : 21,
 			"Geometry"  : [
 				{
 					"Name"   : "cil1",
 					"Type"   : "Cylinder",
-					"Radius" : "Formula: 70/2",
-					"Height" : 28,
+					"Radius" : "Formula: 7 / 2 * 40",
+					"Height" : "Formula: 2.8 * 40",
 					"Grade"  : 10
 				},
 				{
 					"Name"   : "otv1",
 					"Type"   : "Cylinder",
-					"Radius" : "Formula: 11/2",
-					"Height" : 28,
+					"Radius" : "Formula: 1.1 / 2 * 40",
+					"Height" : "Formula: 2.8 * 40",
 					"Grade"  : 10
 				}
 			],

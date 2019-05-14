@@ -1,0 +1,31 @@
+{
+	"Name"      : "Model",
+	"Geometry"  : [
+		{
+			"Name"     : "Shaiba2",
+			"Geometry" : [
+				{
+					"Name"   : "cil18",
+					"Type"   : "Cylinder",
+					"Radius" : "Formula: 3.05 / 2 * 40",
+					"Height" : "Formula: 0.36 * 40",
+					"Grade"  : 10
+				},
+				{
+					"Name"   : "otv13",
+					"Type"   : "Cylinder",
+					"Radius" : "Formula: 1 / 2 * 40",
+					"Height" : "Formula: 0.36 * 40",
+					"Grade"  : 10
+				}
+			],
+			"Merger" : [
+				{
+					"First"  : "cil18",
+					"Second" : "otv13",
+					"Type"   : "subtract"
+				}
+			]
+		}
+	]
+}

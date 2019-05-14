@@ -1,12 +1,12 @@
-function CreateBox(){
+function CreateBox(values){
 
 	let geometry = new THREE.BoxGeometry(
-		value.width,
-		value.height,
-		value.depth,
-		value.widthSegments,
-		value.heightSegments,
-		value.depthSegments
+		values.width,
+		values.height,
+		values.depth,
+		values.widthSegments,
+		values.heightSegments,
+		values.depthSegments
 		);
 
 	let material = new THREE.MeshNormalMaterial(
