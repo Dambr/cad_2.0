@@ -1,0 +1,146 @@
+body{
+	background-color: whitesmoke;
+	margin : 0;
+	padding: 0;
+	user-select: none;
+}
+button:active, button:focus, a:active, a:focus, input:active, input:focus, select:active, select:focus {
+	outline: none;
+}
+#header{
+	position: relative;
+	text-align: center;
+	background-color: dimgrey;
+	color: lightgoldenrodyellow;
+	font-size: 30pt;
+	font-family: "Impact";
+	height: 30vh;
+	vertical-align: middle;
+	display: table-cell;
+	border-color: #7d7a7a;
+	border-width: 25px;
+	border-bottom-style: solid;
+}
+#left{
+	display: inline-block;
+	width: 50%;
+}
+#leftP{
+	width: 80%;
+	padding: 10px;
+	margin-left: 10%;
+	margin-top: 25px;
+	background-color: palegoldenrod;
+	border-radius: 10px;
+	border-style: ridge;
+	color: maroon;
+	text-align: justify;
+}
+#right{
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	margin-top: 25px;
+	text-align: right;
+}
+form{
+	text-align: right;
+	margin-right: 25%;
+	overflow: hidden;
+}
+.btn span{
+	font-family: "Georgia";
+	/*font-size: 12pt;*/
+	font-size: 1.5vw;
+}
+form .btn-tertiary{
+	color: #555;
+	padding: 0;
+	line-height: 44px;
+	width: 50%;
+	height: 45px;
+	padding: 0;
+	display: inline-block;
+	border: 2px solid #555;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap;
+}
+form .btn-tertiary:hover, form .btn-tertiary:focus{
+	color: #888;
+	border-color: #888;
+}
+form .input-file{
+	width: .1px;
+	height: .1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+#submit{
+	width: 25%;
+	height: 49px;
+	vertical-align: top;
+	background: linear-gradient(#efefef, #c5c0c0);
+	cursor: pointer;
+	display: none;
+	overflow: hidden;
+	padding: 0;
+	font-family: "Georgia";
+	font-size: 1.2vw;
+}
+#model{
+	display: none;
+}
+#serverModels {
+	overflow: hidden;
+	text-align: right;
+	margin-right: 25%;
+	margin-top: 50px;
+}
+#serverModels label{
+	border: 2px solid #555;
+	width: 50%;
+	display: inline-block;
+	height: 45px;
+	cursor: pointer;
+}
+#serverModels label select{
+	background: transparent;
+	color: #555;
+	height: 45px;
+	width: 100%;
+	font-family: "Georgia";
+	/*font-size: 12pt;*/
+	font-size: 1.5vw;
+	cursor: pointer;
+}
+#serverModels label:hover, #serverModels label:focus{
+	color: #888;
+	border-color: #888;
+}
+#serverModels label select:hover, #serverModels label select:focus{
+	color: #888;
+	border-color: #888;
+}
+#sendServerModel{
+	display: inline-block;
+	vertical-align: top;
+	display: none;
+	width: 25%;
+}
+#sendServerModel button{
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 49px;
+	vertical-align: middle;
+	background: linear-gradient(#efefef, #c5c0c0);
+	cursor: pointer;
+	overflow: hidden;
+	font-family: "Georgia";
+	/*font-size: 12pt;*/
+	font-size: 1.2vw;
+}

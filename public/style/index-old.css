@@ -1,0 +1,270 @@
+body{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: whitesmoke;
+	user-select: none;
+}
+canvas{
+	cursor: crosshair;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+button, input{
+	cursor: pointer;
+}
+div{
+	position: absolute;
+	display: block;
+	cursor: default;
+}
+#loading{
+	font-size: 25px;
+	text-align: center;
+	margin-top: 50vh;
+	color: #89A4F5;
+	display: inline-block;
+}
+#showWindowOfParameters{
+	position: absolute;
+	display: block;
+	bottom: 20px;
+	width: 100px;
+	left: 10px;
+	height: 60px;
+}
+#materials{
+	position: absolute;
+	display: block;
+	top: 50px;
+	right: 20px;
+	width: 105px;
+}
+#strength{
+	top: 90px;
+	right: 30px;
+	text-align: left;
+}
+#strengthValue{
+	top: 110px;
+	right: 20px;
+}
+#power{
+	position: absolute;
+	display: block;
+	top: 50px;
+	left: 20px;
+	width: 95px;
+}
+#powerText{
+	top: 90px;
+	left: 20px;
+	text-align: left;
+}
+#powerValue{
+	top: 110px;
+	left: 60px;
+}
+#downloadButton{
+	position: absolute;
+	display: block;
+	bottom: 340px;
+	left: 10px;
+	width: 100px;
+	height: 60px;
+	/*top: 10px;
+	right: 10px;*/
+}
+#windowOfParameters, #windowBasicModel{
+	z-index: 2;
+	position: absolute;
+	width: 38%;
+	height: 85.5%;
+	bottom: 10px;
+	left: 10px;
+	background-color: lemonchiffon;
+	border-radius: 10px;
+	border-color: blue;
+	border-width: 5px;
+	border-style: solid;
+	display: none;
+}
+#closeWindowOfParameters, #closeWindowBasicModel{
+	position: absolute;
+	right: 0px;
+	border-top-right-radius: 5px;
+}
+#strengthAnalysis{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	height: 40px;
+}
+#selectedPowerPlaneText{
+	width: 20%;
+	top: 150px;
+	left: 20px;
+	text-align: center;
+}
+#selectedPowerPlane{
+	top: 200px;
+	left: 20px;
+	width: 20%;
+	text-align: center;
+	font-weight: bold;
+	color: red;
+}
+#closePlane{
+	position: absolute;
+	display: block;
+	top: 230px;
+	left: 20px;
+	width: 20%;
+	text-align: center;
+	font-weight: bold;
+	/*color: red;*/
+}
+#analysisLoading{
+	position: relative;
+	/*margin-top: 50%;*/
+	margin-top: 20px;
+	color: blue;
+	font-size: 16pt;
+	font-family: "Arial";
+	display: none;
+}
+#choisePlane{
+	position: absolute;
+	top: 150px;
+	right: 30%;
+	width: 40%;
+	height: 95px;
+	border-style: dashed;
+	border-radius: 5px;
+	border-color: chocolate;
+	background-color: lightyellow;
+}
+#buttonsArrayText{
+	position: relative;
+}
+#buttonsArray{
+	position: relative;
+	width: 100%;
+}
+#buttonsArray button{
+	width: 30%;
+	margin-top: 5px;
+}
+#showNormalModel{
+	position: absolute;
+	display: block;
+	bottom: 100px;
+	width: 100px;
+	height: 60px;
+	left: 10px;
+}
+#showWindowBasicModel{
+	position: absolute;
+	display: block;
+	bottom: 180px;
+	width: 100px;
+	height: 60px;
+	left: 10px;	
+}
+#checkWireFrameP{
+	position: absolute;
+	display: block;
+	width: 200px;
+	/*height: 100px;*/
+	top: 20px;
+	left: 40px;
+}
+#choiseColorFrameP{
+	position: absolute;
+	display: block;
+	width: 200px;
+	/*height: 100px;*/
+	bottom: 20px;
+	left: 40px;
+}
+#choiseColorFrame{
+	width: 50px;
+	border-radius: 1px;
+}
+#showBasicModel{
+	position: absolute;
+	display: block;
+	width: 100px;
+	height: 50px;
+	right: 20px;
+	bottom: 20px;
+}
+#borderOfTools{
+	position: absolute;
+	width: 80%;
+	height: 150px;
+	top : 40px;
+	left: 10%;
+	background-color: lightyellow;
+	border-style: dashed;
+	border-color: chocolate;
+}
+#legend{
+	z-index: 2;
+	width: 100px;
+	height: 300px;
+	display: none;
+	text-align: right;
+	/* right и bottom в файле strengthAnalysis.js*/
+}
+#closeLegend{
+	font-size: 10pt;
+}
+#changeMaxPowerP{
+	position: absolute;
+	left: 150px;
+	top: 50px;
+}
+#changeMaxPower{
+	width: 50px;
+}
+#changeMinPowerP{
+	position: absolute;
+	left: 150px;
+	top: 80px;
+}
+#changeMinPower{
+	width: 50px;
+}
+#selectMeasureText{
+	width: 60px;
+	right: 60px;
+	top: 150px;
+}
+#selectMeasure{
+	position: absolute;
+	display: block;
+	width: 60px;
+	right: 20px;
+	top: 188px;
+}
+#changeRangePlane{
+	position: absolute;
+	display: block;
+	top: 300px;
+	left: 140px;
+}
+#changeRangePlaneText{
+	top: 270px;
+	width: 100%;
+	text-align: center;
+}
+#goToMain{
+	position: absolute;
+	display: block;
+	bottom: 260px;
+	width: 100px;
+	height: 60px;
+	left: 10px;	
+}

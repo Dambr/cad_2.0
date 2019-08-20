@@ -5,30 +5,117 @@
 	<script type="text/javascript" src="public/lib/three_min.js"></script>
 	<script type="text/javascript" src="public/lib/csg.js"></script>
 	<script type="text/javascript" src="public/lib/ThreeCSG.js"></script>
-	<style type="text/css">
-		body{
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-		}
-		#loading{
-			font-size: 25px;
-			text-align: center;
-			margin-top: 50vh;
-			color: #89A4F5;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="public/style/index.css">
 </head>
 <body>
-	<div id = "status"></div>
+	<!-- <div id = "status"></div> -->
+	<div id = "leftButtons">
+		<div id = "buttonContainer1">
+			<a href="http://<%= server.host + ':' + server.port %>"><button id="goToMain">Перейти на главную</button></a><br />
+			<p>Перейти на главную страницу для выбора другой модели или чтобы загрузить свою.</p>
+		</div>
+		<div id = "buttonContainer2">
+			<button id = "showWindowOfParameters" onclick="showWindowOfParameters();">Провести прочностной анализ</button>
+			<p>Открыть меню настроек проведения прочностного анализа. Выбор величины дейсствующей силы, ее направления, материалла изделия и прочих параметров для проведения рассчета.</p>
+		</div>
+		<div id = "buttonContainer3">
+				<!-- Функция находится в changeModelMaterial.js -->
+			<button id = "showNormalModel" onclick="showNormalModel();">Нормальное отображение модели</button>
+			<p>Применить к модели материал, устанавливаемый моделе по умолчанию. Облегчает различие граний при повороте изделия.</p>
+		</div>
+		<div id = "buttonContainer4">
+				<!-- Функция находится в changeModelMaterial.js -->
+			<button id = "showWindowBasicModel" onclick="showWindowBasicModel();">Настроить отображение</button>
+			<p>Открыть меню настроек отображения модели. Позволяет настраивать цвет и вид отображения. Отображение не в закрашенном виде позволяет более подробно рассмотреть внутреннее расположение элементов модели и составных элементов сборочных единиц.</p>
+		</div>
+		<div id = "buttonContainer5">
+			<!-- Здесь добавляется ссылка на скачивание json и приводится описание действия. Ресурс лежит в файле getDownloadLink.js -->
+		</div>
+	</div>
+	
 	<div id = "text" style="display: none"><%= text %></div>
-	<div id = "loading">Модель получена, выполняется ее рендеринг...</div>
-<script type="text/javascript">var objects = [];</script>
-<script type="text/javascript" src="public/script/Conus.js"></script>
-<script type="text/javascript" src="public/script/CreateCylinder.js"></script>
-<script type="text/javascript" src="public/script/CreateBox.js"></script>
-<script type="text/javascript" src="public/script/CreateSphere.js"></script>
-<script type="text/javascript" src="public/script/script.js"></script>
+	<div id = "myMaterials" style="display: none"><%= myMaterials %></div>
+	<center>
+		<div id = "loading">Модель получена, выполняется ее рендеринг...</div>
+	</center>
+	<script type="text/javascript">let objects = [];</script>
+	<!--<script type="text/javascript" src="public/script/Conus.js"></script>-->
+	<script type="text/javascript" src="public/script/CreateCylinder.js"></script>
+	<script type="text/javascript" src="public/script/CreateBox.js"></script>
+	<!--<script type="text/javascript" src="public/script/CreateSphere.js"></script>-->
+	<script type="text/javascript" src="public/script/script.js"></script>
+		<!-- Кнопка скачивания модели .json -->
+	<script type="text/javascript" src="public/script/getDownloadLink.js"></script>
+	<script type="text/javascript" src="public/script/showFace.js"></script>
+
+		<!-- Окно настройки параметров для прочностного анализа -->
+		<div id = "windowOfParameters">
+			<button id = "closeWindowOfParameters" onclick="closeWindowOfParameters();" title="Закрыть">X</button>
+			<label id = "materialsLabel">Выбор материала</label>
+			<select id = "materials" onchange="materialsChange();">
+				<!-- Сюда получаем список материаллов с их свойствами, которые отдал сервер -->
+			</select>
+			<div id = "strength">Коэффициент прочности:</div>
+			<div id = "strengthValue"></div>
+
+			<label id = "powerLabel">Величина действующей силы</label>
+			<input id = "power" type="range" min = "0.0" max = "1.0" step="0.1" value="0.5" oninput="powerChange();">
+			<p id = "changeMaxPowerP"><input id = "changeMaxPower" type="number" value="100" min = "10" oninput="changeMaxPower();"> MaxP</p>
+			<p id = "changeMinPowerP"><input id = "changeMinPower" type="number" value="10"  max = "100" min = "1" oninput="changeMinPower();"> MinP</p>
+			<div id = "powerText">Действующая<br />сила:</div>
+			<div id = "powerValue"></div>
+			<div id = "selectedPowerPlaneText">Выбрана плоскость:</div>
+			<div id = "selectedPowerPlane">F</div>
+			<button id = "closePlane" onclick="closePlane();" disabled>Скрыть плоскость</button>
+			<div id = "selectMeasureText">Единицы измерения силы</div>
+			<select id = "selectMeasure" onchange="measureChange();">
+				<option> МПа</option>
+				<option> кПа</option>
+				<option> Н</option>
+			</select>
+			<input id = "changeRangePlane" type="range" min = "10" value = "10" step="10" oninput="changeRangePlane();" title="Не влияет на результат прочностного анализа">
+			<div id = "changeRangePlaneText">Расстояние до объекта</div>
+			<center>
+				<div id = "analysisLoading">Ожидайте...</div>
+				<div id = "choisePlane">
+					<div id = "buttonsArrayText">Плоскость действия силы</div>
+					<div id = "buttonsArray">
+						<button id = "Front" title = "Спереди" onclick="choisePlane('F');">F</button>
+						<button id = "Left"  title = "Слева"   onclick="choisePlane('L');">L</button>
+						<button id = "Up"    title = "Сверху"  onclick="choisePlane('U');">U</button><br />
+						<button id = "Back"  title = "Сзади"   onclick="choisePlane('B');">B</button>
+						<button id = "Right" title = "Справа"  onclick="choisePlane('R');">R</button>
+						<button id = "Down"  title = "Снизу"   onclick="choisePlane('D');">D</button>
+					</div>
+				</div>
+			</center>
+			<button id = "strengthAnalysis" onclick="strengthAnalysis();">Приступить</button>
+		</div>
+	
+	
+		<!-- Окно настройки отображения модели (BasicMaterial) -->
+		<div id = "windowBasicModel">
+			<button id = "closeWindowBasicModel" onclick="closeWindowBasicModel();">X</button>
+			<div id = "borderOfTools">
+				<p id = "checkWireFrameP"><input id = "checkWireFrame" type="checkbox">Закрашенный вид</p>
+				<p id = "choiseColorFrameP"><input id = "choiseColorFrame" type="color" value = "#ffffff"> Цвет геометрии</p>
+			</div>
+			<button id = "showBasicModel" onclick="showBasicModel();">Отобразить геометрию</button>
+		</div>
+		<!-- Панель для легенды прочностного анализа -->
+	<div id = "legend">
+		<button id = "closeLegend" title="Закрыть легенду" onclick="closeLegend();">x</button>
+	</div>
 	<canvas id = "canvas"></canvas>
+
+		<!-- Обработчики событий и первичные заполнители полей метериала и действующей силы -->
+	<script type="text/javascript" src="public/script/getPower.js"></script>
+	<script type="text/javascript" src="public/script/getMaterial.js"></script>
+
+		<!-- Скрипт, который "делает" прочностной анализ -->
+	<script type="text/javascript" src="public/script/strengthAnalysis.js"></script>
+	<script type="text/javascript" src="public/script/changeModelMaterial.js"></script>
+	<!-- <script type="text/javascript" src="public/script/getStylesIndex.js"></script> -->
+	<!-- <script type="text/javascript">window.onresize = function(){location.reload();}</script> -->
 </body>
 </html>

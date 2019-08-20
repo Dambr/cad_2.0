@@ -1,59 +1,64 @@
 {
-	"Name"      : "Model",
-	"Geometry"  : [
+	"Name"		: "Model",
+	"PositionY"	: -100,
+	"Geometry"	: [
 		{
-			"Name"      : "Shtir",
-			"Geometry"  : [
+			"Name"		: "Shtir",
+			"Geometry"	: [
 				{
-					"Name"      : "cil2",
-					"Type"      : "Conus",
-					"RadiusTop" : "Formula: 1/2 * 40",
-					"RadiusBot" : "Formula: (1/2 - 2 * 0.2) * 40",
-					"Height"    : "Formula: 0.2 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: -(6.8 + 0.2) * 40 / 2"
+					"Name"		: "cil2",
+					"Type"		: "Conus",
+					"RadiusTop"	: "Formula: 1/2 * size",
+					"RadiusBot"	: "Formula: (1/2 - 2 * 0.2) * size",
+					"Height"	: "Formula: 0.2 * size",
+					"PositionY"	: "Formula: -(6.8 + 0.2) * size / 2",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"   : "cil3",
-					"Type"   : "Cylinder",
-					"Radius" : "Formula: 1/2 * 40",
-					"Height" : "Formula: 6.8 * 40",
-					"Grade"  : 10
+					"Name"		: "cil3",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 1/2 * size",
+					"Height"	: "Formula: 6.8 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "cil4",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 1.4/2 * 40",
-					"Height"    : "Formula: 6.7 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (6.8 + 6.7) * 40 / 2"
+					"Name"		: "cil4",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 1.4/2 * size",
+					"Height"	: "Formula: 6.7 * size",
+					"PositionY"	: "Formula: (6.8 + 6.7) * size / 2",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "cil5",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 0.6/2 * 40",
-					"Height"    : "Formula: 0.3 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (6.8 + 6.7 * 2  + 0.3) * 40 / 2"
+					"Name"		: "cil5",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 0.6/2 * size",
+					"Height"	: "Formula: 0.3 * size",
+					"PositionY"	: "Formula: (6.8 + 6.7 * 2  + 0.3) * size / 2",
+					"Grade"		: "Formula: grade"
 				}
 			],
-			"Merger" : [
+			"Merger"	: [
 				{
-					"First"  : "cil2",
-					"Second" : "cil3",
-					"Type"   : "union"
+					"First"		: "cil2",
+					"Second"	: "cil3",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Shtir",
-					"Second" : "cil4",
-					"Type"   : "union"
+					"First"		: "Shtir",
+					"Second"	: "cil4",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Shtir",
-					"Second" : "cil5",
-					"Type"   : "union"
+					"First"		: "Shtir",
+					"Second"	: "cil5",
+					"Type"		: "union"
 				}
 			]
 		}
-	]
+	],
+	"Parameter"	: {
+		"size"	: 40,
+		"grade"	: 20
+	}
 }

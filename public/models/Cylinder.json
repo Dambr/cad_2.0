@@ -1,0 +1,17 @@
+{
+	"Name"		: "Model",
+	"Geometry"	: [
+		{
+			"Name"		: "Cylinder",
+			"Geometry"	: [
+				{
+					"Name"		: "cil1",
+					"Type"		: "Cylinder",
+					"Radius"	: 200,
+					"Height"	: 200,
+					"Grade"		: 20
+				}
+			]
+		}
+	]
+}

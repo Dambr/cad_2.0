@@ -1,45 +1,49 @@
 {
-	"Name"      : "Model",
-	"Geometry"  : [
+	"Name"		: "Model",
+	"Geometry"	: [
 		{
-			"Name"     : "Vtulka",
-			"Geometry" : [
+			"Name"		: "Vtulka",
+			"Geometry"	: [
 				{
-					"Name"      : "cil15",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 8.4/2 * 40",
-					"Height"    : "Formula: 1 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (-3) / 2 * 40"
+					"Name"		: "cil15",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 8.4/2 * size",
+					"Height"	: "Formula: 1 * size",
+					"PositionY"	: "Formula: (-3) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"   : "cil16",
-					"Type"   : "Cylinder",
-					"Radius" : "Formula: 9/2 * 40",
-					"Height" : "Formula: 2 * 40",
-					"Grade"  : 10
+					"Name"		: "cil16",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 9/2 * size",
+					"Height"	: "Formula: 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "otv9",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 7/2 * 40",
-					"Height"    : "Formula: 3 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: -1/2 * 40"
+					"Name"		: "otv9",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 7/2 * size",
+					"Height"	: "Formula: 3 * size",
+					"PositionY"	: "Formula: -1/2 * size",
+					"Grade"		: "Formula: grade"
 				}
 			],
-			"Merger" : [
+			"Merger"	: [
 				{
-					"First"  : "cil15",
-					"Second" : "cil16",
-					"Type"   : "union"
+					"First"		: "cil15",
+					"Second"	: "cil16",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Vtulka",
-					"Second" : "otv9",
-					"Type"   : "subtract"
+					"First"		: "Vtulka",
+					"Second"	: "otv9",
+					"Type"		: "subtract"
 				}
 			]
 		}
-	]
+	],
+	"Parameter"	: {
+		"size"	: 40,
+		"grade"	: 20
+	}
 }

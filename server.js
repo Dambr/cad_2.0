@@ -1,43 +1,37 @@
-var http = require('http');
-var express = require('express');
-var fs = require('fs');
-var path = require('path');
-var app = express();
+const http = require('http');
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+const app = express();
+const urlencodedParser = bodyParser.urlencoded({extended : false});
+const server = {host : '127.0.0.1', port : 4000};
+
 app.set('view engine', 'ejs');
 app.use('/public', express.static('public'));
+
 app.get('/', function(req, res){
-	res.send('Веведите имя модели через символ /');
-	/*var getFiles = function(dir, files_){
-		files_ = files_ || [];
-		var files = fs.readdirSync(dir);
-		for (var i in files){
-			var name = dir + '/' + files[i];
-			if (fs.statSunc(name).isDirectory()){
-				getFiles(name, files_);
-			}
-			else{
-				files_push(name);
-			}
-		}
-		return files_;
-	};
-	console.log(getFiles());*/
+	res.status(200);
+	res.render('main.ejs', {options : fs.readdirSync(__dirname + '/public/models/')});
 });
 app.get('*', function(req, res){
-	//res.render('index.ejs');
-	//console.log(req.url);
 	if (req.url != '/favicon.ico'){
 		try{
-			myObj = fs.readFileSync(__dirname + "/public/models" + req.url + ".json", "utf-8");
-			res.render('index.ejs', {text:myObj});
+			let text = fs.readFileSync(__dirname + '/public/models' + req.url + '.json', 'utf-8');
+			let myMaterials = fs.readFileSync(__dirname + '/public/materials/materials.json', 'utf-8');
+			res.status(200);
+			res.render('index.ejs', {text : text, myMaterials : myMaterials, server : server});
 		}
 		catch (err){
 			res.status(404);
-    		res.render('404.ejs');
+			res.render('404.ejs');
 		}
 	}
-	//res.writeHead(200, {'Content-Type': 'application/json'});
-	//res.end((myObj));
 });
-app.listen(4000, '127.0.0.1');
-console.log('Work!');
+app.post('/', urlencodedParser, function(req, res){
+	let myMaterials = fs.readFileSync(__dirname + '/public/materials/materials.json', 'utf-8');
+	res.status(200);
+	res.render('index.ejs', {text : req.body.model, myMaterials : myMaterials, server : server});
+});
+app.listen(server.port, server.host);
+console.log(server);

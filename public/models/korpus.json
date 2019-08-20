@@ -1,165 +1,171 @@
 {
-	"Name"      : "Model",
-	"PositionY" : -200,
-	"Geometry"  : [
+	"Name"		: "Model",
+	"PositionX"	: 0,
+	"PositionY"	: -200,
+	"PositionZ"	: 0,
+	"Geometry"	: [
 		{
-			"Name"     : "Korpus",
-			"Geometry" : [
+			"Name"		: "Korpus",
+			"Geometry"	: [
 				{
-					"Name"   : "cil8",
-					"Type"   : "Cylinder",
-					"Radius" : "Formula: 15/2 * 40",
-					"Height" : "Formula: 2.6 * 40",
-					"Grade"  : 10
+					"Name"		: "cil8",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 15/2 * size",
+					"Height"	: "Formula: 2.6 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "cil9",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 16/2 * 40",
-					"Height"    : "Formula: 4.4 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (2.6 + 4.4) / 2 * 40"
+					"Name"		: "cil9",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 16/2 * size",
+					"Height"	: "Formula: 4.4 * size",
+					"PositionY"	: "Formula: (2.6 + 4.4) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "cil10",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 20/2 * 40",
-					"Height"    : "Formula: 1 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (2.6 + 4.4 * 2 + 1) / 2 * 40"
+					"Name"		: "cil10",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 20/2 * size",
+					"Height"	: "Formula: 1 * size",
+					"PositionY"	: "Formula: (2.6 + 4.4 * 2 + 1) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "cil11",
-					"Type"      : "Conus",
-					"RadiusTop" : "Formula: (20 / 2 - 2 * 1) * 40",
-					"RadiusBot" : "Formula: 20 / 2 * 40",
-					"Height"    : "Formula: 1 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (2.6 + (4.4 + 1) * 2 + 1) / 2 * 40"
+					"Name"		: "cil11",
+					"Type"		: "Conus",
+					"RadiusTop"	: "Formula: (20 / 2 - 2 * 1) * size",
+					"RadiusBot"	: "Formula: 20 / 2 * size",
+					"Height"	: "Formula: 1 * size",
+					"PositionY"	: "Formula: (2.6 + (4.4 + 1) * 2 + 1) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "cil12",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 5 / 2 * 40",
-					"Height"    : "Formula: 1.5 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (2.6 + (4.4 + 1 + 1) * 2 + 1.5) / 2 * 40"
+					"Name"		: "cil12",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 5 / 2 * size",
+					"Height"	: "Formula: 1.5 * size",
+					"PositionY"	: "Formula: (2.6 + (4.4 + 1 + 1) * 2 + 1.5) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "cil13",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 6 / 2 * 40",
-					"Height"    : "Formula: 2.3 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (2.6 + (4.4 + 1 + 1 + 1.5) * 2 + 2.3) / 2 * 40"
+					"Name"		: "cil13",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 6 / 2 * size",
+					"Height"	: "Formula: 2.3 * size",
+					"PositionY"	: "Formula: (2.6 + (4.4 + 1 + 1 + 1.5) * 2 + 2.3) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "cil14",
-					"Type"      : "Conus",
-					"RadiusTop" : "Formula: (6 / 2 - 2 * 0.2) * 40",
-					"RadiusBot" : "Formula: 6 / 2 * 40",
-					"Height"    : "Formula: 0.2 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (2.6 + (4.4 + 1 + 1 + 1.5 + 2.3) * 2 + 0.2) / 2 * 40"
+					"Name"		: "cil14",
+					"Type"		: "Conus",
+					"RadiusTop"	: "Formula: (6 / 2 - 2 * 0.2) * size",
+					"RadiusBot"	: "Formula: 6 / 2 * size",
+					"Height"	: "Formula: 0.2 * size",
+					"PositionY"	: "Formula: (2.6 + (4.4 + 1 + 1 + 1.5 + 2.3) * 2 + 0.2) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "otv4",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 13.6 / 2 * 40",
-					"Height"    : "Formula: 3.8 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (3.8 - 2.6) / 2 * 40"
+					"Name"		: "otv4",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 13.6 / 2 * size",
+					"Height"	: "Formula: 3.8 * size",
+					"PositionY"	: "Formula: (3.8 - 2.6) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "otv5",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 10.5 / 2 * 40",
-					"Height"    : "Formula: 1 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: ((3.8 * 2) + 1 - 2.6) / 2 * 40"
+					"Name"		: "otv5",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 10.5 / 2 * size",
+					"Height"	: "Formula: 1 * size",
+					"PositionY"	: "Formula: ((3.8 * 2) + 1 - 2.6) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "otv6",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 9 / 2 * 40",
-					"Height"    : "Formula: 1.8 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: ((3.8 + 1) * 2 + 1.8 - 2.6) / 2 * 40"
+					"Name"		: "otv6",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 9 / 2 * size",
+					"Height"	: "Formula: 1.8 * size",
+					"PositionY"	: "Formula: ((3.8 + 1) * 2 + 1.8 - 2.6) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "otv7",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 7 / 2 * 40",
-					"Height"    : "Formula: 1 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: ((3.8 + 1 + 1.8) * 2 + 1 - 2.6) / 2 * 40"
+					"Name"		: "otv7",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 7 / 2 * size",
+					"Height"	: "Formula: 1 * size",
+					"PositionY"	: "Formula: ((3.8 + 1 + 1.8) * 2 + 1 - 2.6) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "otv8",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 4.5 / 2 * 40",
-					"Height"    : "Formula: 6.4 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: ((3.8 + 1 + 1.8 + 1) * 2 + 6.4 - 2.6) / 2 * 40"
+					"Name"		: "otv8",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 4.5 / 2 * size",
+					"Height"	: "Formula: 6.4 * size",
+					"PositionY"	: "Formula: ((3.8 + 1 + 1.8 + 1) * 2 + 6.4 - 2.6) / 2 * size",
+					"Grade"		: "Formula: grade"
 				}
 			],
-			"Merger" : [
+			"Merger"	: [
 				{
-					"First"  : "cil8",
-					"Second" : "cil9",
-					"Type"   : "union"
+					"First"		: "cil8",
+					"Second"	: "cil9",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "cil10",
-					"Type"   : "union"
+					"First"		: "Korpus",
+					"Second"	: "cil10",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "cil11",
-					"Type"   : "union"
+					"First"		: "Korpus",
+					"Second"	: "cil11",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "cil12",
-					"Type"   : "union"
+					"First"		: "Korpus",
+					"Second"	: "cil12",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "cil13",
-					"Type"   : "union"
+					"First"		: "Korpus",
+					"Second"	: "cil13",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "cil14",
-					"Type"   : "union"
+					"First"		: "Korpus",
+					"Second"	: "cil14",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "otv4",
-					"Type"   : "subtract"
+					"First"		: "Korpus",
+					"Second"	: "otv4",
+					"Type"		: "subtract"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "otv5",
-					"Type"   : "subtract"
+					"First"		: "Korpus",
+					"Second"	: "otv5",
+					"Type"		: "subtract"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "otv6",
-					"Type"   : "subtract"
+					"First"		: "Korpus",
+					"Second"	: "otv6",
+					"Type"		: "subtract"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "otv7",
-					"Type"   : "subtract"
+					"First"		: "Korpus",
+					"Second"	: "otv7",
+					"Type"		: "subtract"
 				},
 				{
-					"First"  : "Korpus",
-					"Second" : "otv8",
-					"Type"   : "subtract"
+					"First"		: "Korpus",
+					"Second"	: "otv8",
+					"Type"		: "subtract"
 				}
 			]
 		}
-	]
+	],
+	"Parameter"	: {
+		"size"	: 40,
+		"grade"	: 20
+	}
 }

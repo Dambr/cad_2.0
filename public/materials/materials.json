@@ -1,0 +1,22 @@
+{
+	"steel"			: {
+		"Name"		: "Steel",
+		"Strength"	: 0.5
+	},
+	"gold"			: {
+		"Name"		: "Gold",
+		"Strength"	: 0.3
+	},
+	"ceramics"		: {
+		"Name"		: "Ceramics",
+		"Strength"	: 0.2
+	},
+	"plastic"		: {
+		"Name"		: "Plastic",
+		"Strength"	: 0.1
+	},
+	"myMaterial"	: {
+		"Name"		: "MyMaterial",
+		"Strength"	: 1.0
+	}
+}

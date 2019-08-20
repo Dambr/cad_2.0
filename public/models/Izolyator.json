@@ -1,59 +1,66 @@
 {
-	"Name"      : "Model",
-	"Geometry"  : [
+	"Name"		: "Model",
+	"PositionX"	: 0,
+	"PositionY"	: 0,
+	"PositionZ"	: 0,
+	"Geometry"	: [
 		{
-			"Name"     : "Izolyator",
-			"Geometry" : [
+			"Name"		: "Izolyator",
+			"Geometry"	: [
 				{
-					"Name"      : "cil6",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 7/2 * 40",
-					"Height"    : "Formula: 1 *  40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (-5.4 - 1) / 2 * 40"
+					"Name"		: "cil6",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 7/2 * size",
+					"Height"	: "Formula: 1 * size",
+					"PositionY"	: "Formula: (-5.4 - 1) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"   : "cil7",
-					"Type"   : "Cylinder",
-					"Radius" : "Formula: 4.5/2 * 40",
-					"Height" : "Formula: 5.4 * 40",
-					"Grade"  : 10
+					"Name"		: "cil7",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 4.5/2 * size",
+					"Height"	: "Formula: 5.4 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "otv2",
-					"Type"      : "Conus",
-					"RadiusTop" : "Formula: 1.4 / 2 * 40",
-					"RadiusBot" : "Formula: (1.4 / 2 + 2 * 0.3) * 40",
-					"Height"    : "Formula: 0.3 * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (-5.4 - 1 * 2 + 0.3) / 2 * 40"
+					"Name"		: "otv2",
+					"Type"		: "Conus",
+					"RadiusTop"	: "Formula: 1.4 / 2 * size",
+					"RadiusBot"	: "Formula: (1.4 / 2 + 2 * 0.3) * size",
+					"Height"	: "Formula: 0.3 * size",
+					"PositionY"	: "Formula: (-5.4 - 1 * 2 + 0.3) / 2 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"      : "otv3",
-					"Type"      : "Cylinder",
-					"Radius"    : "Formula: 1.4 / 2 * 40",
-					"Height"    : "Formula: (6.4 - 0.3) * 40",
-					"Grade"     : 10,
-					"PositionY" : "Formula: (-5.4 - 1 * 2 + 0.3 * 2 + (6.4 - 0.3)) / 2 * 40"
+					"Name"		: "otv3",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 1.4 / 2 * size",
+					"Height"	: "Formula: (6.4 - 0.3) * size",
+					"PositionY"	: "Formula: (-5.4 - 1 * 2 + 0.3 * 2 + (6.4 - 0.3)) / 2 * size",
+					"Grade"		: "Formula: grade"
 				}
 			],
-			"Merger" : [
+			"Merger"	: [
 				{
-					"First"  : "cil6",
-					"Second" : "cil7",
-					"Type"   : "union"
+					"First"		: "cil6",
+					"Second"	: "cil7",
+					"Type"		: "union"
 				},
 				{
-					"First"  : "Izolyator",
-					"Second" : "otv2",
-					"Type"   : "subtract"
+					"First"		: "Izolyator",
+					"Second"	: "otv2",
+					"Type"		: "subtract"
 				},
 				{
-					"First"  : "Izolyator",
-					"Second" : "otv3",
-					"Type"   : "subtract"
+					"First"		: "Izolyator",
+					"Second"	: "otv3",
+					"Type"		: "subtract"
 				}
 			]
 		}
-	]
+	],
+	"Parameter"	: {
+		"size"	: 40,
+		"grade"	: 20
+	}
 }

@@ -26,5 +26,6 @@ function CreateCylinder(values){
 	let mesh = new THREE.Mesh(geometry, material);
 	//scene.add(mesh);
 	objects.push(mesh);
-	return mesh;
+	return geometry;
+	//return mesh;
 }

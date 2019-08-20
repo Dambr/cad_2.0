@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Главная</title>
+	<script type="text/javascript" src="public/script/changeFile.js"></script>
+	<link rel="stylesheet" type="text/css" href="public/style/main.css">
+</head>
+<body>
+	<div id = "header">КИСП - кроссплатфоременная информационная среда проектирования</div>
+	<div id = "left">
+		<div id = "leftP">
+			Чтобы приступить к работе, загрузите файл с информационной моделью в формате JSON.<br />
+			Выбрав файл, система проверит JSON на валидность и предложит отобразить геометрию.<br />
+			Если выбрать модель из предложенных вариантов, то система предложит отобразить модель из числа уже существующих моделей, загруженных на сервер. Такую модель можно скачать для дальнейшего использования, что способствует уменьшению трудозатрат и времени на разработку новых моделей на основе существующих.
+		</div>
+	</div><div id = "right">
+		<form id = "form" action="/" method="post">
+			<input type="submit" id="submit" value="Отобразить">
+			<input type="file" name="file"  id="file" class="input-file" onchange="changeFile(this.files);" accept=".json">
+			<label id = "label" for="file" class="btn btn-tertiary js-labelFile">
+				<span class="js-fileName">Выбрать файл</span>
+				<span id = "statusJSON"></span>
+			</label>
+			<input type="text" name="model" id="model">
+		</form>
+		<br />
+		<div id = "serverModels">
+			<a id = "sendServerModel"><button>Отобразить</button></a>
+			<label>
+				<select id = "selectServerModels" onchange="choiseServerModel();">
+					<option>Выбрать модель</option>
+					<% options.forEach(function(option){ %>
+						<option><%= option.replace(".json", "") %></option>
+					<% }); %>
+				</select>
+			</label>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,31 +1,36 @@
 {
-	"Name"      : "Model",
-	"Geometry"  : [
+	"Name"		: "Model",
+	"RotationZ"	: "Formula: Math.PI / 2",
+	"Geometry"	: [
 		{
-			"Name"     : "Shaiba2",
-			"Geometry" : [
+			"Name"		: "Shaiba2",
+			"Geometry"	: [
 				{
-					"Name"   : "cil18",
-					"Type"   : "Cylinder",
-					"Radius" : "Formula: 3.05 / 2 * 40",
-					"Height" : "Formula: 0.36 * 40",
-					"Grade"  : 10
+					"Name"		: "cil18",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 3.05 / 2 * size",
+					"Height"	: "Formula: 0.36 * size",
+					"Grade"		: "Formula: grade"
 				},
 				{
-					"Name"   : "otv13",
-					"Type"   : "Cylinder",
-					"Radius" : "Formula: 1 / 2 * 40",
-					"Height" : "Formula: 0.36 * 40",
-					"Grade"  : 10
+					"Name"		: "otv13",
+					"Type"		: "Cylinder",
+					"Radius"	: "Formula: 1 / 2 * size",
+					"Height"	: "Formula: 0.36 * size",
+					"Grade"		: "Formula: grade"
 				}
 			],
-			"Merger" : [
+			"Merger"	: [
 				{
-					"First"  : "cil18",
-					"Second" : "otv13",
-					"Type"   : "subtract"
+					"First"		: "cil18",
+					"Second"	: "otv13",
+					"Type"		: "subtract"
 				}
 			]
 		}
-	]
+	],
+	"Parameter"	: {
+		"size"	: 40,
+		"grade"	: 20
+	}
 }
