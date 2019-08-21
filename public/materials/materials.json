@@ -2,21 +2,18 @@
 	"steel" : {
 		"Name": "Steel",
 		"Strength": 0.00783,
-		"Tensile_Strength" : 670,
-		"Compressive_Strength" : 670,
-		"Tensile_Strength" : 325
 	},
-	"gold" : {
-		"Name" : "Gold",
-		"Strength" : 0.3
+	"copper" : {
+		"Name" : "Copper",
+		"Strength" : 0.00894
 	},
-	"ceramics" : {
-		"Name" : "Ceramics",
-		"Strength" : 0.2
+	"aluminum" : {
+		"Name" : "Aluminum",
+		"Strength" : 0.00271
 	},
-	"plastic" : {
-		"Name" : "Plastic",
-		"Strength" : 0.1
+	"tin" : {
+		"Name" : "Tin",
+		"Strength" : 0.0073
 	},
 	"myMaterial" : {
 		"Name" : "MyMaterial",
