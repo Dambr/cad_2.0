@@ -22,7 +22,9 @@ button:active, button:focus, select:active, select:focus {
 div{
 	cursor: default;
 }
-
+button, select, input{
+	cursor: pointer;
+}
 #loading{
 	font-size: 25px;
 	text-align: center;
@@ -186,7 +188,8 @@ div{
 	border-style: double;
 	border-width: 3px;
 	border-color: steelblue;
-	/*overflow: auto;*/
+	overflow: auto;
+	display: none;
 }
 
 #closeWindowOfParameters, #closeWindowBasicModel{
@@ -208,7 +211,7 @@ div{
 }
 #materials{
 	width: 50%;
-	font-size: 1.5vw;
+	font-size: 1.3vw;
 	border-style: solid;
 	border-color: darkgray;
 	border-width: medium;
@@ -223,237 +226,287 @@ div{
 }
 #strengthValue{
 	display: inline-block;
+	font-size: 1.5vw;
 }
-#power{
-	position: absolute;
-	display: block;
-	top: 50px;
-	left: 20px;
-	width: 95px;
-
-	display: none;
+#strengthValuePost{
+	display: inline-block;
+	font-size: 1.5vw;
 }
 #powerLabel{
-	display: none;
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size: 1.5vw;
+	color: firebrick;
+	display: inline-block;
+	/*display: none;*/
 }
-#powerText{
-	top: 90px;
-	left: 20px;
-	text-align: left;
+#power{
+	margin-left: 20px;
+	width: 20vw;
+	display: inline;
+	margin-top: 20px;
+}
 
-	display: none;
+#powerText{
+	/*top: 90px;
+	left: 20px;
+	text-align: left;*/
+
+	/*display: none;*/
 }
 #powerValue{
-	top: 110px;
-	left: 60px;
-
-	display: none;
+	display: inline-block;
+	font-size: 1.5vw;
 }
 #strengthAnalysis{
-	position: absolute;
+	/*position: absolute;
 	bottom: 20px;
-	right: 20px;
-	height: 40px;
-
-	display: none;
+	right: 20px;*/
+	display: block;
+	margin-left: auto;
+	margin-right: 20px;
+	font-size: 1.2vw;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+#PowerPlane{
+	margin-top: 20px;
+	text-align: left;
 }
 #selectedPowerPlaneText{
-	width: 20%;
+	/*width: 20%;
 	top: 150px;
-	left: 20px;
-	text-align: center;
+	left: 20px;*/
+	display: inline-block;
+	/*margin-top: 20px;*/
+	font-size: 1.5vw;
+	color: firebrick;
+	/*text-align: center;*/
 
-	display: none;
+	/*display: none;*/
 }
 #selectedPowerPlane{
-	top: 200px;
+/*	top: 200px;
 	left: 20px;
-	width: 20%;
+	width: 20%;*/
+	display: inline-block;
 	text-align: center;
 	font-weight: bold;
 	color: red;
-
-	display: none;
+	font-size: 1.5vw;
+	/*display: none;*/
 }
 #closePlane{
-	position: absolute;
+/*	position: absolute;
 	display: block;
 	top: 230px;
-	left: 20px;
-	width: 20%;
+	left: 20px;*/
+	/*width: 20%;*/
+	display: inline-block;
+	/*margin-top: 20px;*/
 	text-align: center;
 	font-weight: bold;
-
-	display: none;
+	font-size: 1.2vw;
+	margin-left: 20px;
+	/*display: none;*/
+}
+#loadingContainer{
+	margin-top: 20px;
+	height: 2vw;
 }
 #analysisLoading{
-	position: relative;
-	margin-top: 20px;
+	/*position: relative;*/
+	/*margin-top: 20px;*/
 	color: blue;
-	font-size: 16pt;
+	font-size: 2vw;
 	font-family: "Arial";
 	display: none;
 }
 #choisePlane{
-	position: absolute;
-	top: 150px;
-	right: 30%;
-	width: 40%;
-	height: 95px;
+	/*position: absolute;*/
+	/*top: 150px;*/
+	/*right: 30%;*/
+	margin-top: 20px;
+	width: 50%;
+	padding: 5px;
+	/*height: 95px;*/
 	border-style: dashed;
 	border-radius: 5px;
 	border-color: chocolate;
 	background-color: lightyellow;
 
-	display: none;
+	/*display: none;*/
 }
 #buttonsArrayText{
 	position: relative;
 
-	display: none;
+	/*display: none;*/
 }
 #buttonsArray{
 	position: relative;
-	width: 100%;
+	/*width: 100%;*/
 
-	display: none;
+	/*display: none;*/
 }
 #buttonsArray button{
 	width: 30%;
 	margin-top: 5px;
 
-	display: none;
+	/*display: none;*/
 }
 
-#changeMaxPowerP{
-	position: absolute;
-	left: 150px;
-	top: 50px;
 
-	display: none;
+#changesPower{
+	display: inline-block;
+	text-align: left;
+	font-size: 1.5vw;
+}
+#changeMaxPowerP{
+	margin: 0;
+	/*position: absolute;
+	left: 150px;
+	top: 50px;*/
+
+	/*display: none;*/
 }
 #changeMaxPower{
-	width: 50px;
-
-	display: none;
+	width: 4.5vw;
+	font-size: 1.2vw;
+	/*margin-left: 20px;*/
+	/*display: none;*/
 }
 #changeMinPowerP{
-	position: absolute;
+	margin: 0;
+	/*position: absolute;
 	left: 150px;
 	top: 80px;
-
-	display: none;
+	
+	display: none;*/
 }
 #changeMinPower{
-	width: 50px;
-
-	display: none;
+	width: 4.5vw;
+	font-size: 1.2vw;
+	/*margin-left: 20px;*/
+	/*text-align: center;*/
+	/*display: none;*/
 }
 #selectMeasureText{
-	width: 60px;
+	/*width: 60px;
 	right: 60px;
 	top: 150px;
 
-	display: none;
+	display: none;*/
+	font-size: 1.5vw;
+	margin-left: 20px;
+	margin-top: 20px;
+	color: firebrick;
+	display: inline-block;
 }
 #selectMeasure{
-	position: absolute;
+	font-size: 1.2vw;
+	display: inline-block;
+	border-style: solid;
+	border-color: darkgray;
+	border-width: medium;
+	border-radius: 10px;
+	/*position: absolute;
 	display: block;
 	width: 60px;
 	right: 20px;
 	top: 188px;
 
-	display: none;
+	display: none;*/
 }
 #changeRangePlane{
-	position: absolute;
+	/*position: absolute;
 	display: block;
 	top: 300px;
 	left: 140px;
 
-	display: none;
+	display: none;*/
+	width: 50%;
 }
 #changeRangePlaneText{
-	top: 270px;
+	/*top: 270px;
 	width: 100%;
 	text-align: center;
 
-	display: none;
+	display: none;*/
+	font-size: 1.5vw;
+	color: firebrick;
 }
 
+/*Окно выбора вида модели*/
 #checkWireFrameP{
-	position: absolute;
+	/*width: 50%;*/
+	/*position: absolute;
 	display: block;
 	width: 200px;
 	top: 20px;
 	left: 40px;
 
-	display: none;
+	display: none;*/
 }
 #choiseColorFrameP{
-	position: absolute;
+	/*position: absolute;
 	display: block;
 	width: 200px;
 	bottom: 20px;
 	left: 40px;
 
-	display: none;
+	display: none;*/
 }
 #choiseColorFrame{
-	width: 50px;
+	/*width: 50px;*/
 	border-radius: 1px;
-
-	display: none;
+	width: 5vw;
+	/*display: none;*/
 }
 #showBasicModel{
-	position: absolute;
+	display: block;
+	margin-left: auto;
+	margin-right: 25%;
+	margin-top: 20px;
+	/*position: absolute;
 	display: block;
 	width: 100px;
 	height: 50px;
 	right: 20px;
 	bottom: 20px;
 
-	display: none;
+	display: none;*/
 }
 #borderOfTools{
-	position: absolute;
-	width: 80%;
-	height: 150px;
-	top : 40px;
-	left: 10%;
+	/*position: absolute;*/
+	/*width: 80%;*/
+	/*height: 150px;*/
+	/*top : 40px;*/
+	/*left: 10%;*/
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 25%;
+	font-size: 1.5vw;
 	background-color: lightyellow;
 	border-style: dashed;
 	border-color: chocolate;
 
-	display: none
+	/*display: none*/
 }
 
 #legend{
+	position: absolute;
 	z-index: 2;
-	width: 100px;
-	height: 300px;
+	width: 10%;
+	top: 10px;
+	right: 50%;
+	height: 50%;
 	display: none;
 	text-align: right;
 	/*right и bottom в файле прочностного анализа*/
 }
-/*
+
 #closeLegend{
 	font-size: 10pt;
 }
 
 
-*/
-
-#windowBasicModel{
-	z-index: 2;
-	position: absolute;
-	width: calc(40% - 20px - 3px); /* Еще -3 за рамку */
-	height: calc(100% - 20px - 3px);
-	background-color: lemonchiffon;
-	background-color: beige;
-	border-style: double;
-	border-width: 3px;
-	border-color: steelblue;
-	display: none;  /* display должен быть none */
-
-}

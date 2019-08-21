@@ -210,7 +210,7 @@ function strengthAnalysis(){
 				document.getElementById("legend").style.display = "block";
 				// document.getElementById("legend").style.width  = "100px";
 				// document.getElementById("legend").style.height = "300px";
-				document.getElementById("legend").style.right  = document.getElementById("canvas").width - 100 + 10 + "px";
+				// document.getElementById("legend").style.right  = document.getElementById("canvas").width - 100 + 10 + "px";
 				// alert(document.getElementById("canvas").height);
 				document.getElementById("legend").style.bottom = document.getElementById("canvas").height - 300 + 10 + "px";
 

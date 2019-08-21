@@ -55,28 +55,31 @@
 			<select id = "materials" onchange="materialsChange();">
 				<!-- Сюда получаем список материаллов с их свойствами, которые отдал сервер -->
 			</select>
-			<div id = "strength">Коэффициент прочности:</div>
-			<div id = "strengthValue"></div>
+			<div id = "strength">Плотность материала:</div>
+			<div id = "strengthValue"></div> <div id = "strengthValuePost">г/мм^3</div>
 
-			<label id = "powerLabel">Величина действующей силы</label>
+			<label id = "powerLabel">Величина действующей силы:</label> <div id = "powerValue"></div>
 			<input id = "power" type="range" min = "0.0" max = "1.0" step="0.1" value="0.5" oninput="powerChange();">
-			<p id = "changeMaxPowerP"><input id = "changeMaxPower" type="number" value="100" min = "10" oninput="changeMaxPower();"> MaxP</p>
-			<p id = "changeMinPowerP"><input id = "changeMinPower" type="number" value="10"  max = "100" min = "1" oninput="changeMinPower();"> MinP</p>
-			<div id = "powerText">Действующая<br />сила:</div>
-			<div id = "powerValue"></div>
-			<div id = "selectedPowerPlaneText">Выбрана плоскость:</div>
-			<div id = "selectedPowerPlane">F</div>
-			<button id = "closePlane" onclick="closePlane();" disabled>Скрыть плоскость</button>
+			<div id = "changesPower">
+				<p id = "changeMaxPowerP"><input id = "changeMaxPower" type="number" value="100" min = "10" oninput="changeMaxPower();"> MaxP</p>
+				<p id = "changeMinPowerP"><input id = "changeMinPower" type="number" value="10"  max = "100" min = "1" oninput="changeMinPower();"> MinP</p>
+			</div>
+			<br />
 			<div id = "selectMeasureText">Единицы измерения силы</div>
 			<select id = "selectMeasure" onchange="measureChange();">
 				<option> МПа</option>
 				<option> кПа</option>
 				<option> Н</option>
 			</select>
-			<input id = "changeRangePlane" type="range" min = "10" value = "10" step="10" oninput="changeRangePlane();" title="Не влияет на результат прочностного анализа">
-			<div id = "changeRangePlaneText">Расстояние до объекта</div>
+			<!-- <div id = "powerText">Действующая<br />сила:</div> -->
+			
+				<div id = "PowerPlane">
+					<button id = "closePlane" onclick="closePlane();" disabled>Скрыть плоскость</button>
+					<div id = "selectedPowerPlaneText">Выбрана плоскость:</div>
+					<div id = "selectedPowerPlane">F</div>
+				</div>
 			<center>
-				<div id = "analysisLoading">Ожидайте...</div>
+				
 				<div id = "choisePlane">
 					<div id = "buttonsArrayText">Плоскость действия силы</div>
 					<div id = "buttonsArray">
@@ -88,6 +91,13 @@
 						<button id = "Down"  title = "Снизу"   onclick="choisePlane('D');">D</button>
 					</div>
 				</div>
+				<input id = "changeRangePlane" type="range" min = "10" value = "10" step="10" oninput="changeRangePlane();" title="Не влияет на результат прочностного анализа">
+				<div id = "changeRangePlaneText">Расстояние до объекта</div>
+			</center>
+			<center>
+				<div id = "loadingContainer">
+					<div id = "analysisLoading">Ожидайте...</div>
+				</div>
 			</center>
 			<button id = "strengthAnalysis" onclick="strengthAnalysis();">Приступить</button>
 		</div>
@@ -95,7 +105,7 @@
 	
 		<!-- Окно настройки отображения модели (BasicMaterial) -->
 		<div id = "windowBasicModel">
-			<button id = "closeWindowBasicModel" onclick="closeWindowBasicModel();">X</button>
+			<button id = "closeWindowBasicModel" onclick="closeWindowBasicModel();" title="Закрыть">X</button>
 			<div id = "borderOfTools">
 				<p id = "checkWireFrameP"><input id = "checkWireFrame" type="checkbox">Закрашенный вид</p>
 				<p id = "choiseColorFrameP"><input id = "choiseColorFrame" type="color" value = "#ffffff"> Цвет геометрии</p>
