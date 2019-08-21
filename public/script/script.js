@@ -450,7 +450,7 @@ window.onload = function(){
 	camera.lookAt(0,0,0);
 	document.getElementById("canvas").addEventListener("wheel", function(e){
 		var delta = e.deltaY || e.detail || e.wheelDelta;
-		camera.position.z += delta * 5;
+		camera.position.z += delta / 5;
 	});
 
 

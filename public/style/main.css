@@ -8,15 +8,14 @@ button:active, button:focus, a:active, a:focus, input:active, input:focus, selec
 	outline: none;
 }
 #header{
-	position: relative;
+	/*position: relative;*/
 	text-align: center;
 	background-color: dimgrey;
 	color: lightgoldenrodyellow;
 	font-size: 30pt;
 	font-family: "Impact";
-	height: 30vh;
-	vertical-align: middle;
-	display: table-cell;
+	height: 5em;
+	line-height: 5em;
 	border-color: #7d7a7a;
 	border-width: 25px;
 	border-bottom-style: solid;
