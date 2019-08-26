@@ -1,7 +1,7 @@
 {
 	"steel" : {
 		"Name": "Steel",
-		"Strength": 0.00783,
+		"Strength": 0.00783
 	},
 	"copper" : {
 		"Name" : "Copper",
@@ -17,6 +17,6 @@
 	},
 	"myMaterial" : {
 		"Name" : "MyMaterial",
-		"Strength" : 1.0
+		"Strength" : 1
 	}
 }
