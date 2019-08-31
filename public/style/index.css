@@ -501,6 +501,7 @@ button, select, input{
 	top: 10px;
 	right: 50%;
 	height: 50%;
+	/*background-color: red;*/
 	display: none;
 	text-align: right;
 	/*right и bottom в файле прочностного анализа*/

@@ -165,37 +165,37 @@ function strengthAnalysis(){
 									for (let f = 0; f < Pole[k][j][i].faces.length; f ++){
 										Pole[k][j][i].faces[f].color.setRGB(power, strength, k / (MaxZ - 1));
 									}
-									gradientColor.push( "rgb(" + Math.floor(255 * power) + "," + Math.floor(255 * strength) + "," + Math.floor(255 * k / (MaxZ - 1)) + ")" );
+									gradientColor.push( "rgb(" + 255 * power + "," + 255 * strength + "," + 255 * k / (MaxZ - 1) + ")" );
 									break;
 								case "L":
 									for (let f = 0; f < Pole[k][j][i].faces.length; f ++){
 										Pole[k][j][i].faces[f].color.setRGB(power, strength, 1 - i / (MaxX - 1));
 									}
-									gradientColor.unshift( "rgb(" + Math.floor(255 * power) + "," + Math.floor(255 * strength) + "," + Math.floor(255 * (1 - i / (MaxX - 1))) + ")" );
+									gradientColor.unshift( "rgb(" + 255 * power + "," + 255 * strength + "," + 255 * (1 - i / (MaxX - 1)) + ")" );
 									break;
 								case "U":
 									for (let f = 0; f < Pole[k][j][i].faces.length; f ++){
 										Pole[k][j][i].faces[f].color.setRGB(power, strength, j / (MaxY - 1));
 									}
-									gradientColor.push( "rgb(" + Math.floor(255 * power) + "," + Math.floor(255 * strength) + "," + Math.floor(255 * j / (MaxY - 1)) + ")" );
+									gradientColor.push( "rgb(" + 255 * power + "," + 255 * strength + "," + 255 * j / (MaxY - 1) + ")" );
 									break;
 								case "B":
 									for (let f = 0; f < Pole[k][j][i].faces.length; f ++){
 										Pole[k][j][i].faces[f].color.setRGB(power, strength, 1 - k / (MaxZ - 1));
 									}
-									gradientColor.unshift( "rgb(" + Math.floor(255 * power) + "," + Math.floor(255 * strength) + "," + Math.floor(255 * (1 - k / (MaxZ - 1))) + ")" );
+									gradientColor.unshift( "rgb(" + 255 * power + "," + 255 * strength + "," + 255 * (1 - k / (MaxZ - 1)) + ")" );
 									break;
 								case "R":
 									for (let f = 0; f < Pole[k][j][i].faces.length; f ++){
 										Pole[k][j][i].faces[f].color.setRGB(power, strength, i / (MaxX - 1));
 									}
-									gradientColor.push( "rgb(" + Math.floor(255 * power) + "," + Math.floor(255 * strength) + "," + Math.floor(255 * i / (MaxX - 1)) + ")" );
+									gradientColor.push( "rgb(" + 255 * power + "," + 255 * strength + "," + 255 * i / (MaxX - 1) + ")" );
 									break;
 								case "D":
 									for (let f = 0; f < Pole[k][j][i].faces.length; f ++){
 										Pole[k][j][i].faces[f].color.setRGB(power, strength, 1 - j / (MaxY - 1));
 									}
-									gradientColor.push( "rgb(" + Math.floor(255 * power) + "," + Math.floor(255 * strength) + "," + Math.floor(255 * j / (MaxY - 1)) + ")" );
+									gradientColor.push( "rgb(" + 255 * power + "," + 255 * strength + "," + 255 * j / (MaxY - 1) + ")" );
 									break;
 							}
 							
@@ -227,8 +227,6 @@ function strengthAnalysis(){
                 console.info(backgroundGradient);
 
 				document.getElementById("legend").style.background = "linear-gradient(" + backgroundGradient + ")";
-                // document.getElementById("legend").style.backgroundColor = "red";                
-
 
 				group.name = "MAINMESH";
 				scene.add(group);
