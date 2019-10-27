@@ -13,12 +13,12 @@ function materialsChange(){
 	let material = document.getElementById("materials").options[index].value;
 	let strength = materials[material].Strength;
 	if (material == "myMaterial"){
-		let _strength = prompt("Прочность материала:", materials.myMaterial.Strength);
-		if (_strength != null && String(Number(_strength)) != "NaN" && Number(_strength) > 0){
+		let _strength = prompt("Предел прочности материала на сжатие, МПа:", materials.myMaterial.Strength);
+		if (_strength != null && String(Number(_strength)) != "NaN" /*&& Number(_strength) > 0*/ ){
 			strength = _strength;
 		}
 		else{
-			alert("Недопустимое значение прочности материала.\nЗначение будет присвоено = " + materials.myMaterial.Strength)
+			alert("Недопустимое значение прочности материала.\nЗначение будет присвоено = " + materials.myMaterial.Strength + " МПа");
 		}
 	}
 	document.getElementById("strengthValue").textContent = strength;

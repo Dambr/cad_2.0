@@ -507,6 +507,17 @@ button, select, input{
 	/*right и bottom в файле прочностного анализа*/
 }
 
+#legend table{
+	position: absolute;
+	top: 0;
+	color: white;
+	padding: 0;
+}
+
+#legend table td{
+	padding: 0;
+}
+
 #closeLegend{
 	font-size: 10pt;
 }

@@ -55,8 +55,8 @@
 			<select id = "materials" onchange="materialsChange();">
 				<!-- Сюда получаем список материаллов с их свойствами, которые отдал сервер -->
 			</select>
-			<div id = "strength">Плотность материала:</div>
-			<div id = "strengthValue"></div> <div id = "strengthValuePost">г/мм^3</div>
+			<div id = "strength">Предел прочности материала на сжатие:</div>
+			<div id = "strengthValue"></div> <div id = "strengthValuePost">МПа</div>
 
 			<label id = "powerLabel">Величина действующей силы:</label> <div id = "powerValue"></div>
 			<input id = "power" type="range" min = "0.0" max = "1.0" step="0.1" value="0.5" oninput="powerChange();">
@@ -69,7 +69,7 @@
 			<select id = "selectMeasure" onchange="measureChange();">
 				<option> Н</option>
 				<option> кН</option>
-				<option> кгс</option>
+				<option> МН</option>
 			</select>
 			<!-- <div id = "powerText">Действующая<br />сила:</div> -->
 			
