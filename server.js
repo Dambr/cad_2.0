@@ -33,5 +33,6 @@ app.post('/', urlencodedParser, function(req, res){
 	res.status(200);
 	res.render('index.ejs', {text : req.body.model, myMaterials : myMaterials, server : server});
 });
-app.listen(server.port, server.host);
-console.log(server);
+app.listen(server.port, server.host, ()=>{
+	console.log(server);
+});
