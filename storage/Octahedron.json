@@ -1,0 +1,20 @@
+{
+	"Name": "Model",
+	"Geometry": [
+		{
+			"Name": "Octahedron",
+			"Geometry": [
+				{
+					"Name": "octahedron1",
+					"Type": "Octahedron",
+					"Radius": "Formula: radius",
+					"Detail": "Formula: detail"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"radius": 200,
+		"detail": 0
+	}
+}

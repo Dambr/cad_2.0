@@ -1,0 +1,29 @@
+{
+	"Name": "Model",
+	"Geometry": [
+		{
+			"Name": "Lathe",
+			"Geometry": [
+				{
+					"Name": "lathe1",
+					"Type": "Lathe",
+					"Points": [["Formula: Math.sin( 1 * 0.2 ) * 10 + 5", "Formula: ( 1 - 5 ) * 2"],
+							   ["Formula: Math.sin( 2 * 0.2 ) * 10 + 5", "Formula: ( 2 - 5 ) * 2"],
+							   ["Formula: Math.sin( 3 * 0.2 ) * 10 + 5", "Formula: ( 3 - 5 ) * 2"],
+							   ["Formula: Math.sin( 4 * 0.2 ) * 10 + 5", "Formula: ( 4 - 5 ) * 2"],
+							   ["Formula: Math.sin( 5 * 0.2 ) * 10 + 5", "Formula: ( 5 - 5 ) * 2"],
+							   ["Formula: Math.sin( 6 * 0.2 ) * 10 + 5", "Formula: ( 6 - 5 ) * 2"],
+							   ["Formula: Math.sin( 7 * 0.2 ) * 10 + 5", "Formula: ( 7 - 5 ) * 2"],
+							   ["Formula: Math.sin( 8 * 0.2 ) * 10 + 5", "Formula: ( 8 - 5 ) * 2"],
+							   ["Formula: Math.sin( 9 * 0.2 ) * 10 + 5", "Formula: ( 9 - 5 ) * 2"],
+							   ["Formula: Math.sin( 10 * 0.2 ) * 10 + 5", "Formula: ( 10 - 5 ) * 2"]
+							],
+					"Grade": "Formula: grade"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"grade": 80
+	}
+}

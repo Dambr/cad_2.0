@@ -1,0 +1,20 @@
+{
+	"Name": "Sphere",
+	"Geometry": [
+		{
+			"Name": "Sphere",
+			"Geometry": [
+				{
+					"Name": "sphere1",
+					"Type": "Sphere",
+					"Radius": "Formula: radius",
+					"Grade": "Formula: grade"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"radius": 100,
+		"grade": 80
+	}
+}

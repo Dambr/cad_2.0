@@ -1,13 +1,8 @@
-function CreateSphere(values){
+function CreateExtrude(values){
 
-	let geometry = new THREE.SphereGeometry(
-		values.radius,
-		values.widthSegments,
-		values.heightSegments,
-		values.phiStart,
-		values.phiLength,
-		values.thetaStart,
-		values.thetaLength
+	let geometry = new THREE.ExtrudeGeometry(
+		values.shape,
+		values.settings
 		);
 
 	let material = new THREE.MeshNormalMaterial(

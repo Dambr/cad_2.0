@@ -1,0 +1,27 @@
+{
+	"Name": "Model",
+	"Geometry": [
+		{
+			"Name": "Cone",
+			"Geometry": [
+				{
+					"Name": "cone1",
+					"Type": "Cone",
+					"Radius": "Formula: radius",
+					"Height": "Formula: height",
+					"Grade": "Formula: grade",
+					"HeightSegments": "Formula: segments",
+					"OpenEnded": false,
+					"ThetaStart": 0,
+					"ThetaLength": "Formula: Math.PI"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"radius": 200,
+		"height": 200,
+		"grade": 80,
+		"segments": 20
+	}
+}

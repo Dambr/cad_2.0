@@ -1,0 +1,38 @@
+{
+	"Name": "Model",
+	"Geometry": [
+		{
+			"Name": "Union",
+			"Geometry": [
+				{
+					"Name": "sphere1",
+					"Type": "Sphere",
+					"Radius": "Formula: radius",
+					"Grade": "Formula: grade"
+				},
+				{
+					"Name": "box1",
+					"Type": "Box",
+					"A"	: "Formula: width",
+					"B"	: "Formula: height",
+					"C"	: "Formula: depth",
+					"Grade"	: "Formula: grade"
+				}
+			],
+			"Merger": [
+				{
+					"First": "box1",
+					"Second": "sphere1",
+					"Type": "intersect"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"height": 200,
+		"width": 200,
+		"depth": 200,
+		"radius": 120,
+		"grade": 20
+	}
+}

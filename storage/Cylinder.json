@@ -1,0 +1,22 @@
+{
+	"Name": "Model",
+	"Geometry": [
+		{
+			"Name": "Cylinder",
+			"Geometry": [
+				{
+					"Name": "cylinder1",
+					"Type": "Cylinder",
+					"Radius": "Formula: radius",
+					"Height": "Formula: height",
+					"Grade": "Formula: grade"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"radius": 200,
+		"height": 200,
+		"grade": 80
+	}
+}

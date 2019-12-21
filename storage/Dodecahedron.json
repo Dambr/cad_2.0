@@ -1,0 +1,20 @@
+{
+	"Name": "Model",
+	"Geometry": [
+		{
+			"Name": "Dodecahedron",
+			"Geometry": [
+				{
+					"Name": "dodecahedron1",
+					"Type": "Dodecahedron",
+					"Radius": "Formula: radius",
+					"Detail": "Formula: detail"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"radius": 200,
+		"detail": 0
+	}
+}

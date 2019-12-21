@@ -1,0 +1,23 @@
+{
+	"Name": "Model",
+	"Geometry": [
+		{
+			"Name": "Conus",
+			"Geometry": [
+				{
+					"Name": "conus1",
+					"Type": "Conus",
+					"RadiusTop": "Formula: radius / 2",
+					"RadiusBot": "Formula: radius",
+					"Height": "Formula: height",
+					"Grade": "Formula: grade"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"radius": 200,
+		"height": 200,
+		"grade": 80
+	}
+}

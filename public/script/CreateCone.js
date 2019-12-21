@@ -1,11 +1,11 @@
-function CreateSphere(values){
+function CreateCone(values){
 
-	let geometry = new THREE.SphereGeometry(
+	let geometry = new THREE.ConeGeometry(
 		values.radius,
-		values.widthSegments,
+		values.height,
+		values.radialSegments,
 		values.heightSegments,
-		values.phiStart,
-		values.phiLength,
+		values.openEnded,
 		values.thetaStart,
 		values.thetaLength
 		);

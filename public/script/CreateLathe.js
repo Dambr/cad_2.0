@@ -1,13 +1,10 @@
-function CreateSphere(values){
+function CreateLathe(values){
 
-	let geometry = new THREE.SphereGeometry(
-		values.radius,
-		values.widthSegments,
-		values.heightSegments,
+	let geometry = new THREE.LatheGeometry(
+		values.points,
+		values.segments,
 		values.phiStart,
-		values.phiLength,
-		values.thetaStart,
-		values.thetaLength
+		values.phiLength
 		);
 
 	let material = new THREE.MeshNormalMaterial(

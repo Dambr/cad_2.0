@@ -93,7 +93,7 @@ window.onload = function(){
 							if (typeof(ThetaStart) == "string"){
 								ThetaStart = eval(reParameter(ThetaStart.split("Formula:")[1]));
 							}
-							var ThetaLength    = txt.Geometry[i].Geometry[j].ThetaLengt;
+							var ThetaLength    = txt.Geometry[i].Geometry[j].ThetaLength;
 							if (typeof(ThetaLength) == "string"){
 								ThetaLength = eval(reParameter(ThetaLength.split("Formula:")[1]));
 							}
@@ -142,7 +142,7 @@ window.onload = function(){
 							if (typeof(ThetaStart) == "string"){
 								ThetaStart = eval(reParameter(ThetaStart.split("Formula:")[1]));
 							}
-							var ThetaLength    = txt.Geometry[i].Geometry[j].ThetaLengt;
+							var ThetaLength    = txt.Geometry[i].Geometry[j].ThetaLength;
 							if (typeof(ThetaLength) == "string"){
 								ThetaLength = eval(reParameter(ThetaLength.split("Formula:")[1]));
 							}
@@ -198,6 +198,270 @@ window.onload = function(){
 							});
 
 							objects[objects.length - 1].Geometry = new THREE.Mesh(objects[objects.length - 1].Geometry, material);
+							break;
+						case("Cone"):
+							var radius = txt.Geometry[i].Geometry[j].Radius;
+							if (typeof(radius) == "string"){
+								radius = eval(reParameter(radius.split("Formula:")[1]));
+							}
+							var height = txt.Geometry[i].Geometry[j].Height;
+							if (typeof(height) == "string"){
+								height = eval(reParameter(height.split("Formula:")[1]));
+							}
+							var radialSegments = txt.Geometry[i].Geometry[j].Grade;
+							if (typeof(radialSegments) == "string"){
+								radialSegments = eval(reParameter(radialSegments.split("Formula:")[1]));
+							}
+							var heightSegments = txt.Geometry[i].Geometry[j].HeightSegments;
+							if (typeof(heightSegments) == "string"){
+								heightSegments = eval(reParameter(heightSegments.split("Formula:")[1]));
+							}
+							var openEnded = txt.Geometry[i].Geometry[j].OpenEnded;
+							if (typeof(openEnded) != "boolean"){
+								openEnded = false;
+							}
+							var thetaStart = txt.Geometry[i].Geometry[j].ThetaStart;
+							if (typeof(thetaStart) == "string"){
+								thetaStart = eval(reParameter(thetaStart.split("Formula:")[1]));
+							}
+							var thetaLength = txt.Geometry[i].Geometry[j].ThetaLength;
+							if (typeof(thetaStart) == "string"){
+								thetaLength = eval(reParameter(thetaLength.split("Formula:")[1]));
+							}
+							objects[objects.length - 1].Geometry = new CreateCone({
+								radius 			: radius,
+								height 			: height,
+								radialSegments 	: radialSegments,
+								heightSegments 	: heightSegments,
+								openEnded 		: openEnded,
+								thetaStart 		: thetaStart,
+								thetaLength 	: ThetaLength
+							});
+							break;
+						case("Dodecahedron"):
+							var radius = txt.Geometry[i].Geometry[j].Radius;
+							if (typeof(radius) == "string"){
+								radius = eval(reParameter(radius.split("Formula:")[1]));
+							}
+							var detail = txt.Geometry[i].Geometry[j].Detail;
+							if (typeof(detail) == "string"){
+								detail = eval(reParameter(detail.split("Formula:")[1]));
+							}
+							objects[objects.length - 1].Geometry = new CreateDodecahedron({
+								radius 			: radius,
+								detail 			: detail
+							});
+							break;
+						case("Icosahedron"):
+							var radius = txt.Geometry[i].Geometry[j].Radius;
+							if (typeof(radius) == "string"){
+								radius = eval(reParameter(radius.split("Formula:")[1]));
+							}
+							var detail = txt.Geometry[i].Geometry[j].Detail;
+							if (typeof(detail) == "string"){
+								detail = eval(reParameter(detail.split("Formula:")[1]));
+							}
+							objects[objects.length - 1].Geometry = new CreateIcosahedron({
+								radius 			: radius,
+								detail 			: detail
+							});
+							break;
+						case("Extrude"):
+							var shape = new THREE.Shape();
+							var points = txt.Geometry[i].Geometry[j].Points;
+							for (var k = 0; k < points.length; k ++){
+								if (typeof(points[k][0]) == "string"){
+									points[k][0] = eval(reParameter(points[k][0].split("Formula:")[1]));
+								}
+								if (typeof(points[k][1]) == "string"){
+									points[k][1] = eval(reParameter(points[k][1].split("Formula:")[1]));
+								}
+							}
+							shape.moveTo( points[0][0], points[0][1] );
+							for (var k = 1; k < points.length; k ++){
+								shape.lineTo( points[k][0], points[k][1] );
+							}
+							shape.lineTo( points[0][0], points[0][1] );
+							
+
+							var curveSegments = txt.Geometry[i].Geometry[j].CurveSegments;
+							if (typeof(curveSegments) == "string"){
+								curveSegments = eval(reParameter(curveSegments.split("Formula:")[1]));
+							}
+							var steps = txt.Geometry[i].Geometry[j].Steps;
+							if (typeof(steps) == "string"){
+								steps = eval(reParameter(steps.split("Formula:")[1]));
+							}
+							var depth = txt.Geometry[i].Geometry[j].Depth;
+							if (typeof(depth) == "string"){
+								depth = eval(reParameter(depth.split("Formula:")[1]));
+							}
+							var bevelEnabled = txt.Geometry[i].Geometry[j].BevelEnabled;
+							if (typeof(bevelEnabled) != "boolean"){
+								bevelEnabled = true;
+							}
+							var bevelThickness = txt.Geometry[i].Geometry[j].BevelThickness;
+							if (typeof(bevelThickness) == "string"){
+								bevelThickness = eval(reParameter(bevelThickness.split("Formula:")[1]));
+							}
+							var bevelSize = txt.Geometry[i].Geometry[j].BevelSize;
+							if (typeof(bevelSize) == "string"){
+								bevelSize = eval(reParameter(bevelSize.split("Formula:")[1]));
+							}
+							var bevelOffset = txt.Geometry[i].Geometry[j].BevelOffset;
+							if (typeof(bevelOffset) == "string"){
+								bevelOffset = eval(reParameter(bevelOffset.split("Formula:")[1]));
+							}
+							var bevelSegments = txt.Geometry[i].Geometry[j].BevelSegments;
+							if (typeof(bevelSegments) == "string"){
+								bevelSegments = eval(reParameter(bevelSegments.split("Formula:")[1]));
+							}
+							var settings = {
+								curveSegments		: curveSegments,
+								steps 				: steps,
+								depth 				: depth,
+								bevelEnabled 		: bevelEnabled,
+								bevelThickness 		: bevelThickness,
+								bevelSize 			: bevelSize,
+								bevelOffset 		: bevelOffset,
+								bevelSegments 		: bevelSegments
+							}
+							objects[objects.length - 1].Geometry = new CreateExtrude({
+								shape 			: shape,
+								settings		: settings
+							});
+							break;
+						case("Lathe"):
+							var points = txt.Geometry[i].Geometry[j].Points;
+							// console.info(points);
+							for (var k = 0; k < points.length; k ++){
+								if (typeof(points[k][0]) == "string"){
+									points[k][0] = eval(reParameter(points[k][0].split("Formula:")[1]));
+								}
+								if (typeof(points[k][1]) == "string"){
+									points[k][1] = eval(reParameter(points[k][1].split("Formula:")[1]));
+								}
+							}
+							// console.info(points);
+							for (var k = 0; k < points.length; k ++){
+								points[k] = new THREE.Vector2(points[k][0], points[k][1]);
+							}
+							var segments = txt.Geometry[i].Geometry[j].Grade;
+							if (typeof(segments) == "string"){
+								segments = eval(reParameter(segments.split("Formula:")[1]));
+							}
+							var phiStart = txt.Geometry[i].Geometry[j].PhiStart;
+							if (typeof(phiStart) == "string"){
+								phiStart = eval(reParameter(phiStart.split("Formula:")[1]));
+							}
+							var phiLength = txt.Geometry[i].Geometry[j].PhiLength;
+							if (typeof(phiLength) == "string"){
+								phiLength = eval(reParameter(phiLength.split("Formula:")[1]));
+							}
+							objects[objects.length - 1].Geometry = new CreateLathe({
+								points 			: points,
+								segments		: segments,
+								phiStart		: phiStart,
+								phiLength		: phiLength
+							});
+							break;
+						case("Octahedron"):
+							var radius = txt.Geometry[i].Geometry[j].Radius;
+							if (typeof(radius) == "string"){
+								radius = eval(reParameter(radius.split("Formula:")[1]));
+							}
+							var detail = txt.Geometry[i].Geometry[j].Detail;
+							if (typeof(detail) == "string"){
+								detail = eval(reParameter(detail.split("Formula:")[1]));
+							}
+							objects[objects.length - 1].Geometry = new CreateOctahedron({
+								radius 			: radius,
+								detail 			: detail
+							});
+							break;
+						case("Sphere"):
+							var radius = txt.Geometry[i].Geometry[j].Radius;
+							if (typeof(radius) == "string"){
+								radius = eval(reParameter(radius.split("Formula:")[1]));
+							}
+							var widthSegments = txt.Geometry[i].Geometry[j].Grade;
+							if (typeof(widthSegments) == "string"){
+								widthSegments = eval(reParameter(widthSegments.split("Formula:")[1]));
+							}
+							var heightSegments = txt.Geometry[i].Geometry[j].Grade;
+							if (typeof(heightSegments) == "string"){
+								heightSegments = eval(reParameter(heightSegments.split("Formula:")[1]));
+							}
+							var phiStart = txt.Geometry[i].Geometry[j].PhiStart;
+							if (typeof(phiStart) == "string"){
+								phiStart = eval(reParameter(phiStart.split("Formula:")[1]));
+							}
+							var phiLength = txt.Geometry[i].Geometry[j].PhiLength;
+							if (typeof(phiLength) == "string"){
+								phiLength = eval(reParameter(phiLength.split("Formula:")[1]));
+							}
+							var thetaStart = txt.Geometry[i].Geometry[j].ThetaStart;
+							if (typeof(thetaStart) == "string"){
+								thetaStart = eval(reParameter(thetaStart.split("Formula:")[1]));
+							}
+							var thetaLength = txt.Geometry[i].Geometry[j].ThetaLength;
+							if (typeof(thetaLength) == "string"){
+								thetaLength = eval(reParameter(thetaLength.split("Formula:")[1]));
+							}
+							objects[objects.length - 1].Geometry = new CreateSphere({
+								radius 			: radius,
+								widthSegments	: widthSegments,
+								heightSegments 	: heightSegments,
+								phiStart 		: phiStart,
+								phiLength 		: phiLength,
+								thetaStart 		: thetaStart,
+								thetaLength 	: thetaLength
+							});
+							break;
+						case("Tetrahedron"):
+							var radius = txt.Geometry[i].Geometry[j].Radius;
+							if (typeof(radius) == "string"){
+								radius = eval(reParameter(radius.split("Formula:")[1]));
+							}
+							var detail = txt.Geometry[i].Geometry[j].Detail;
+							if (typeof(detail) == "string"){
+								detail = eval(reParameter(detail.split("Formula:")[1]));
+							}
+							objects[objects.length - 1].Geometry = new CreateTetrahedron({
+								radius 			: radius,
+								detail 			: detail
+							});
+							break;
+						case("Torus"):
+							var radius = txt.Geometry[i].Geometry[j].Radius;
+							if (typeof(radius) == "string"){
+								radius = eval(reParameter(radius.split("Formula:")[1]));
+							}
+							var tube = txt.Geometry[i].Geometry[j].Tube;
+							if (typeof(tube) == "string"){
+								tube = eval(reParameter(tube.split("Formula:")[1]));
+							}
+							var radialSegments = txt.Geometry[i].Geometry[j].Grade;
+							if (typeof(radialSegments) == "string"){
+								radialSegments = eval(reParameter(radialSegments.split("Formula:")[1]));
+							}
+							var tubularSegments = txt.Geometry[i].Geometry[j].Grade;
+							if (typeof(tubularSegments) == "string"){
+								tubularSegments = eval(reParameter(tubularSegments.split("Formula:")[1]));
+							}
+							// console.info('radialSegments', radialSegments);
+							// console.info('tubularSegments', tubularSegments);
+							var arc = txt.Geometry[i].Geometry[j].Arc;
+							if (typeof(arc) == "string"){
+								arc = eval(reParameter(arc.split("Formula:")[1]));
+							}
+							objects[objects.length - 1].Geometry = new CreateTorus({
+								radius 			: radius,
+								tube 			: tube,
+								radialSegments 	: radialSegments,
+								tubularSegments : tubularSegments,
+								arc 			: arc 
+							});
 							break;
 					}
 					var pos_rot = ["PositionX", "PositionY", "PositionZ", "RotationX", "RotationY", "RotationZ"];
@@ -286,11 +550,16 @@ window.onload = function(){
 						if(merg[i][1][h].First == objects[g].Name){
 							for (f in objects){
 								if (merg[i][1][h].Second == objects[f].Name){
-									if (merg[i][1][h].Type == "subtract"){
-										objects[j].Geometry = objects[g].Geometry.subtract(objects[f].Geometry);
-									}
-									if (merg[i][1][h].Type == "union"){
-										objects[j].Geometry = objects[g].Geometry.union(objects[f].Geometry);
+									switch(merg[i][1][h].Type){
+										case("subtract"):
+											objects[j].Geometry = objects[g].Geometry.subtract(objects[f].Geometry);
+											break;
+										case("union"):
+											objects[j].Geometry = objects[g].Geometry.union(objects[f].Geometry);
+											break;
+										case("intersect"):
+											objects[j].Geometry = objects[g].Geometry.intersect(objects[f].Geometry);
+											break;
 									}
 								}
 							}
@@ -363,19 +632,28 @@ window.onload = function(){
 				if (text.Merger[i].First == objects[j].Name){
 					for (h in objects){
 						if (text.Merger[i].Second == objects[h].Name){
-							if (text.Merger[i].Type == "subtract"){
-								if (objects[j].Name != objects[objects.length - 1].Name){
-									objects[j].Geometry = THREE.CSG.toCSG(objects[j].Geometry);
-								}
-								objects[h].Geometry = THREE.CSG.toCSG(objects[h].Geometry);
-								objects[objects.length - 1].Geometry = objects[j].Geometry.subtract(objects[h].Geometry);
-							}
-							if (text.Merger[i].Type == "union"){
-								if (objects[j].Name != objects[objects.length - 1].Name){
-									objects[j].Geometry = THREE.CSG.toCSG(objects[j].Geometry);
-								}
-								objects[h].Geometry = THREE.CSG.toCSG(objects[h].Geometry);
-								objects[objects.length - 1].Geometry = objects[j].Geometry.union(objects[h].Geometry);
+							switch(text.Merger[i].Type){
+								case("subtract"):
+									if (objects[j].Name != objects[objects.length - 1].Name){
+										objects[j].Geometry = THREE.CSG.toCSG(objects[j].Geometry);
+									}
+									objects[h].Geometry = THREE.CSG.toCSG(objects[h].Geometry);
+									objects[objects.length - 1].Geometry = objects[j].Geometry.subtract(objects[h].Geometry);
+									break;
+								case("union"):
+									if (objects[j].Name != objects[objects.length - 1].Name){
+										objects[j].Geometry = THREE.CSG.toCSG(objects[j].Geometry);
+									}
+									objects[h].Geometry = THREE.CSG.toCSG(objects[h].Geometry);
+									objects[objects.length - 1].Geometry = objects[j].Geometry.union(objects[h].Geometry);
+									break;
+								case("intersect"):
+									if (objects[j].Name != objects[objects.length - 1].Name){
+										objects[j].Geometry = THREE.CSG.toCSG(objects[j].Geometry);
+									}
+									objects[h].Geometry = THREE.CSG.toCSG(objects[h].Geometry);
+									objects[objects.length - 1].Geometry = objects[j].Geometry.intersect(objects[h].Geometry);
+									break;
 							}
 						}
 					}

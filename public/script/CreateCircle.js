@@ -1,11 +1,8 @@
-function CreateSphere(values){
+function CreateCircle(values){
 
-	let geometry = new THREE.SphereGeometry(
+	let geometry = new THREE.CircleBufferGeometry(
 		values.radius,
-		values.widthSegments,
-		values.heightSegments,
-		values.phiStart,
-		values.phiLength,
+		values.segments,
 		values.thetaStart,
 		values.thetaLength
 		);

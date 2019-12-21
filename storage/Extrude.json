@@ -1,0 +1,35 @@
+{
+	"Name": "Model",
+	"PositionX": "Formula: -width / 2",
+	"PositionY": "Formula: -length / 2",
+	"PositionZ": "Formula: -depth / 2",
+	"Geometry": [
+		{
+			"Name": "Extrude",
+			"Geometry": [
+				{
+					"Name": "extrude1",
+					"Type": "Extrude",
+					"Points": [[0, 0], [0, "Formula: width"], ["Formula: length", "Formula: width"], ["Formula: length", 0]],
+					"Steps": "Formula: steps",
+					"Depth": "Formula: depth",
+					"BevelEnabled": true,
+					"BevelThickness": "Formula: thickness",
+					"BevelSize": "Formula: size",
+					"BevelOffset": "Formula: offset",
+					"BevelSegments": "Formula: segments"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"length": 200,
+		"width": 200,
+		"steps": 2,
+		"depth": 200,
+		"thickness": 10,
+		"size": 10,
+		"offset": 0,
+		"segments": 10
+	}
+}

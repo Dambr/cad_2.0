@@ -1,0 +1,22 @@
+{
+	"Name": "Model",
+	"Geometry": [
+		{
+			"Name": "Torus",
+			"Geometry": [
+				{
+					"Name": "torus1",
+					"Type": "Torus",
+					"Radius": "Formula: radius",
+					"Tube": "Formula: tube",
+					"Grade": "Formula: grade"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"radius": 200,
+		"tube": 50,
+		"grade": 80
+	}
+}

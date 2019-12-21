@@ -1,0 +1,20 @@
+{
+	"Name": "Model",
+	"Geometry": [
+		{
+			"Name": "Tetrahedron",
+			"Geometry": [
+				{
+					"Name": "tetrahedron1",
+					"Type": "Tetrahedron",
+					"Radius": "Formula: radius",
+					"Detail": "Formula: detail"
+				}
+			]
+		}
+	],
+	"Parameter": {
+		"radius": 200,
+		"detail": 0
+	}
+}

@@ -1,13 +1,11 @@
-function CreateSphere(values){
-
-	let geometry = new THREE.SphereGeometry(
+function CreateTorus(values){
+	
+	let geometry = new THREE.TorusGeometry(
 		values.radius,
-		values.widthSegments,
-		values.heightSegments,
-		values.phiStart,
-		values.phiLength,
-		values.thetaStart,
-		values.thetaLength
+		values.tube,
+		values.radialSegments,
+		values.tubularSegments,
+		values.arc
 		);
 
 	let material = new THREE.MeshNormalMaterial(

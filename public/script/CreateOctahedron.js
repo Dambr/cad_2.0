@@ -1,13 +1,8 @@
-function CreateSphere(values){
-
-	let geometry = new THREE.SphereGeometry(
+function CreateOctahedron(values){
+	
+	let geometry = new THREE.OctahedronGeometry(
 		values.radius,
-		values.widthSegments,
-		values.heightSegments,
-		values.phiStart,
-		values.phiLength,
-		values.thetaStart,
-		values.thetaLength
+		values.detail
 		);
 
 	let material = new THREE.MeshNormalMaterial(
